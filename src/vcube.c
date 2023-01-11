@@ -59,22 +59,33 @@ int main(int argc, char const *argv[])
 
             // faz o cálculo da função C(i,s)
             nodes = cis(i, j);
+            
+            //corrige o erro na ordem quando j >= 3
+            if((i%2) != 0 && j >= 3){
+                node_set *aux;
+                int tamVet = POW_2(j - 1);
+                aux = set_new(tamVet);
+
+                for(int k = 0; k < tamVet; k++){
+                    if((k%4) == 0){
+                        aux->nodes[k] = nodes->nodes[k];
+                        aux->nodes[k+2] = nodes->nodes[k+2];
+
+                        aux->nodes[k+1] = nodes->nodes[k+3];
+                        aux->nodes[k+3] = nodes->nodes[k+1];
+                    }
+                }
+                set_free(nodes);
+                nodes = aux;
+            }
+
             for (int k = 0; k < nodes->size; k++)
             {
                 printf("%i ", nodes->nodes[k]);
             }
-
             printf("\n");
         }
     }
-
-    // nodes = cis(1, 3);
-    // for (int k = 0; k < nodes->size; k++)
-    // {
-    //     printf("%i ", nodes->nodes[k]);
-    // }
-
-    // printf("\n");
 
     set_free(nodes);
     printf("\n\nFIM DE EXECUÇÃO\n");
