@@ -18,7 +18,6 @@ void set_insert(node_set *nodes, int node)
 {
     if (nodes == NULL)
         return;
-    //printf("Inserindo na posição %d o valor %d\n", nodes->offset, node);
     nodes->nodes[nodes->offset++] = node;
 }
 
@@ -26,7 +25,6 @@ void set_merge(node_set *dest, node_set *source)
 {
     if (dest == NULL || source == NULL)
         return;
-    // printf("Fazendo merge...\n");
     memcpy(&(dest->nodes[dest->offset]), source->nodes, sizeof(int) * source->size);
     dest->offset += source->size;
 }
@@ -43,8 +41,6 @@ node_set *cis(int i, int s)
     int xor = i ^ POW_2(s - 1);
     int j;
 
-    // printf("xor = %d, i = %d, POW_2(s-1) = %d\n", xor, i, POW_2(s - 1));
-
     /* starting node list */
     nodes = set_new(POW_2(s - 1));
 
@@ -54,24 +50,9 @@ node_set *cis(int i, int s)
     /* recursion */
     for (j = 1; j <= (s-1); j++)
     {
-        // printf("j = %d\n", j);
         other_nodes = cis(xor, j);
-        // printf("other_nodes: ");
-        // for (int k = 0; k < other_nodes->size; k++)
-        // {
-        //     printf("%i ", other_nodes->nodes[k]);
-        // }
-        // printf("\n");
         set_merge(nodes, other_nodes);
-        
         set_free(other_nodes);
-
-        // printf("nodes: ");
-        // for (int k = 0; k < nodes->size; k++)
-        // {
-        //     printf("%i ", nodes->nodes[k]);
-        // }
-        // printf("\n");
     }
     return nodes;
 }
