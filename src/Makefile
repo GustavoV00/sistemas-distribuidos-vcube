@@ -3,8 +3,8 @@ nomePrograma=vcube
 
 all: $(nomePrograma)
 
-$(nomePrograma): vcube.o smpl.o rand.o
-	$(LINK.c) -o $@ -Bstatic vcube.o smpl.o rand.o $(parametrosCompilacao)
+$(nomePrograma): vcube.o smpl.o rand.o cisj.o
+	$(LINK.c) -o $@ -Bstatic vcube.o smpl.o rand.o cisj.o $(parametrosCompilacao)
 
 smpl.o: smpl.c smpl.h
 	$(COMPILE.c)  -g smpl.c $(parametrosCompilacao)
@@ -14,6 +14,9 @@ vcube.o: vcube.c smpl.h
 
 rand.o: rand.c
 	$(COMPILE.c) -g rand.c $(parametrosCompilacao)
+
+cisj.o: cisj.c cisj.h
+	$(COMPILE.c) -g cisj.c $(parametrosCompilacao)
 
 clean:
 	$(RM) *.o $(nomePrograma) relat saida
