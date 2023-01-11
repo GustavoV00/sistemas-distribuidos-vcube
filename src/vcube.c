@@ -8,6 +8,7 @@
 
 TipoProcesso *processo;
 
+
 int main(int argc, char const *argv[])
 {
     // static int N, // número de processos do sistema
@@ -52,22 +53,28 @@ int main(int argc, char const *argv[])
 
     for (i = 0; i < N; i++)
     {
-        printf("i = [%d] \n", i);
         for (int j = 1; j <= log2N; j++)
         {
-            printf("i = [%d] j = [%d]\n", i, j);
+            printf("C(%d, %d): ", i, j);
 
             // faz o cálculo da função C(i,s)
             nodes = cis(i, j);
-            printf("passou aqui\n");
-            for (i = 0; i < nodes->size; i++)
+            for (int k = 0; k < nodes->size; k++)
             {
-                printf("%i ", nodes->nodes[i]);
+                printf("%i ", nodes->nodes[k]);
             }
 
             printf("\n");
         }
     }
+
+    // nodes = cis(1, 3);
+    // for (int k = 0; k < nodes->size; k++)
+    // {
+    //     printf("%i ", nodes->nodes[k]);
+    // }
+
+    // printf("\n");
 
     set_free(nodes);
     printf("\n\nFIM DE EXECUÇÃO\n");
