@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "smpl.h"
+// #include "cisj.h"
 
 /* cada processo conta seu tempo */
 
