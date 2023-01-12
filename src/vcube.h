@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "smpl.h"
-// #include "cisj.h"
+#include "cisj.h"
 
 /* cada processo conta seu tempo */
 
@@ -19,3 +19,5 @@ typedef struct
     int id; /* identificador de facility SMPL */
             /* variáveis locais do processo são declaradas aqui */
 } TipoProcesso;
+
+node_set *obterCISCorrigido(node_set *nodes, int i, int s);
