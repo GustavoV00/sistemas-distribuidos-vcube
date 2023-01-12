@@ -48,7 +48,7 @@ node_set *cis(int i, int s)
     set_insert(nodes, xor);
 
     /* recursion */
-    for (j = 1; j <= (s-1); j++)
+    for (j = 1; j <= (s - 1); j++)
     {
         other_nodes = cis(xor, j);
         set_merge(nodes, other_nodes);
