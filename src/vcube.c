@@ -91,11 +91,6 @@ int main(int argc, char const *argv[])
     int log2N = floor(log2(N));
     printf("log2(%d) = %d\n", N, log2N);
 
-    int *idRodadas = malloc(N * sizeof(int));
-    for(int a = 0; a < N; a++){
-        idRodadas[a] = 1;
-    }
-
     int statusTeste;
     while(time() < MAX_TIME){
         cause(&event, &token); //faz o SMPL verificar para cada processo naquele instante de tempo se tem algum evento para ele
@@ -107,11 +102,7 @@ int main(int argc, char const *argv[])
                 }
                 printf("===================================\n");
                 printf("O processo [%d] testando no tempo %4.1f: \n", token, time());
-                // nodes = obterCISCorrigido(nodes, token, idRodadas[token]);
-                // idRodadas[token] = idRodadas[token]+1;
-                // if(idRodadas[token] > log2N){
-                //     idRodadas[token] = 1;
-                // }
+                
                 for(int s = 1; s <= log2N; s++){
                     
                     printf("s: [%d] - ", s);
@@ -126,8 +117,6 @@ int main(int argc, char const *argv[])
                         //verificando se i é o primeiro nodo sem falha de C(j,s)
                         if(aux->nodes[0] == token){
                             printf("\t[%d] é o primeiro nó sem falha de C(%d, %d)! Vai testar\n", token, nodes->nodes[j], s);
-
-                            //printf("[%d] testando [%d]...\n", token, nodes->nodes[j]);
 
                             statusTeste = status(processo[nodes->nodes[j]].id);
                             if(statusTeste == 0){
@@ -157,36 +146,6 @@ int main(int argc, char const *argv[])
                 break;
         }
     }
-
-    // i = 1;
-    // int statusProximo;
-    // while(1){
-    //     for(int s = 1; s <= log2N; s++){
-    //         printf("===================================\n");
-    //         printf("s: [%d]\n", s);
-
-    //         nodes = obterCISCorrigido(nodes, i, s);
-    //         for (int j = 0; j < nodes->size; j++){
-    //             printf("j: [%d]\n", j);
-    //             //printf("%i ", nodes->nodes[j]);
-
-    //             aux = obterCISCorrigido(aux, j, s);
-    //             //verificando se i é o primeiro nodo sem falha de C(j,s)
-    //             if(aux->nodes[0] == i){
-    //                 printf("[%d] é o primeiro nó sem falha de C(%d, %d)!\n", i, j, s);
-
-    //                 printf("[%d] testando [%d]...\n", i, j);
-
-    //                 //statusProximo = status(processo[idProximo].id);
-    //                 if(statusProximo == 0){
-
-    //                 } else {
-
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
 
     if(nodes != NULL){
         set_free(nodes);
