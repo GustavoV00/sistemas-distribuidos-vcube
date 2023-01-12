@@ -8,6 +8,24 @@
 
 TipoProcesso *processo;
 
+void resetaVetorState(int *vetor, int N, int idProcessoAtual){
+    for(int j = 0; j < N; j++){
+        if(j == idProcessoAtual){
+            vetor[j] = correto;
+        } else {
+            vetor[j] = unknown;
+        }
+    }
+}
+
+void imprimeVetorState(int *vetor, int N, int id){
+    printf("State de [%d]: ", id);
+    for(int j = 0; j < N; j++){
+        printf("[%d] ", vetor[j]);
+    }
+    printf("\n");
+}
+
 node_set *obterCISCorrigido(node_set *nodes, int i, int s){
     printf("C(%d, %d): ", i, s);
 
@@ -72,13 +90,26 @@ int main(int argc, char const *argv[])
     /* vamos inicializar os processos */
     printf("Inicializando os [%d] processos...\n", N);
     processo = (TipoProcesso *)malloc(sizeof(TipoProcesso) * N);
-    for (i = 0; i < N; i++)
-    {
+    for (i = 0; i < N; i++){
         memset(fa_name, '\0', 5);
         sprintf(fa_name, "%d", i);
         processo[i].id = facility(fa_name, 1);
         printf("fa_name = %s, processo[%d].id = %d\n", fa_name, i, processo[i].id);
+
+        //aloca memória para o vetor de estados
+        processo[i].State = malloc(sizeof(int) * N);
+        if(processo[i].State == NULL){
+            puts("Falha ao alocar espaço para vetor de estados!\n");
+            exit(1);
+        }
+
+        //inicializa o vetor State com 0 (correto) para o próprio processo
+        //e -1 (unknown) para os demais processos
+        resetaVetorState(processo[i].State, N, i);
+
+        imprimeVetorState(processo[i].State, N, i);
     }
+    printf("Processos inicializados com sucesso!\n");
 
     // vamos fazer o escalonamento inicial de eventos
     printf("\nFazendo escalonamento inicial dos eventos...\n");
@@ -86,6 +117,9 @@ int main(int argc, char const *argv[])
         schedule(test, 30.0, i); //escalona o evento teste no nodo i daqui a 30 unidades de tempo
     }
     printf("Escalonamento concluído!\n");
+
+    schedule(fault, 31.0, 1);
+    schedule(recovery, 61.0, 1);
 
     node_set *nodes = NULL, *aux = NULL;
     int log2N = floor(log2(N));
@@ -121,13 +155,36 @@ int main(int argc, char const *argv[])
                             statusTeste = status(processo[nodes->nodes[j]].id);
                             if(statusTeste == 0){
                                 printf("(TESTE) O processo [%d] testou o processo [%d] no tempo %4.1f: CORRETO\n", token, nodes->nodes[j], time());
+                                
+                                if((processo[token].State[nodes->nodes[j]] % 2) == 1){
+                                    printf("Incrementando entrada na posição [%d]...\n", nodes->nodes[j]);
+                                    processo[token].State[nodes->nodes[j]]++;
+                                }
+
+                                printf("Obtendo informações de diagnóstico...\n");
+                                for(int k = 0; k < N; k++){
+                                    if(processo[nodes->nodes[j]].State[k] > processo[token].State[k]){
+                                        printf("Copiando entrada ref. ao processo [%d] do processo [%d] para o processo [%d]...\n", k, nodes->nodes[j], token);
+                                        processo[token].State[k] = processo[nodes->nodes[j]].State[k];
+                                    }
+                                }
+
+                                //falta colocar quantas rodadas demorou para detectar o evento
+                                
                                 break;
                             } else {
                                 printf("(TESTE) O processo [%d] testou o processo [%d] no tempo %4.1f: FALHO\n", token, nodes->nodes[j], time());
+
+                                if((processo[token].State[nodes->nodes[j]] % 2) == 0){
+                                    printf("Incrementando entrada na posição [%d]...\n", nodes->nodes[j]);
+                                    processo[token].State[nodes->nodes[j]]++;
+                                }
                             }
                         }
                     }
                 }
+
+                imprimeVetorState(processo[token].State, N, token);
                 
                 schedule(test, 30.0, token); //processo token vai testar daqui 30 unidades de tempo
                 break;
