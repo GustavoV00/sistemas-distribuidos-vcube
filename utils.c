@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utils.h"
-#include "../vcube/vcube.h"
-#include "../vcube/cisj.h"
+#include "vcube.h"
+#include "cisj.h"
 
-void imprime_cabecalho(float MAX_TIME, int N)
+void imprime_cabecalho(float tempo, int N)
 {
     printf("==============================================================================\n");
     printf("2022/2 - TRABALHO 1 SISTEMAS DISTRIBUIDOS\n");
     printf("Bruno Farias - GRR20186715 | Gustavo Valente - GRR20182557\n");
-    printf("Tempo máximo: [%4.1f] - N de processos: [%d]\n", MAX_TIME, N);
+    printf("Tempo máximo: [%4.1f] - N de processos: [%d]\n", tempo, N);
     printf("==============================================================================\n");
 }
 
@@ -28,6 +28,31 @@ void inicia_simulacao()
     smpl(0, "vCube"); // 0 indica que é a primeira simulação, e em seguida o nome dela
     reset();
     stream(1);
+}
+
+void resetaVetorState(int *vetor, int N, int idProcessoAtual)
+{
+    for (int j = 0; j < N; j++)
+    {
+        if (j == idProcessoAtual)
+        {
+            vetor[j] = correto;
+        }
+        else
+        {
+            vetor[j] = unknown;
+        }
+    }
+}
+
+void imprimeVetorState(int *vetor, int N, int id)
+{
+    printf("State de [%d]: ", id);
+    for (int j = 0; j < N; j++)
+    {
+        printf("[%d] ", vetor[j]);
+    }
+    printf("\n");
 }
 
 TipoProcesso *inicializa_processos(char *fa_name, TipoProcesso *processo, int i, int N)
@@ -64,12 +89,6 @@ void escalonamento_inicial_de_eventos(int i, int N)
     }
 }
 
-void fake_faults_e_recovery()
-{
-    schedule(fault, 31.0, 1);
-    schedule(recovery, 61.0, 1);
-}
-
 void obter_informacoes_diagnostico(TipoProcesso *processo, int N, int token, node_set *nodes, int j)
 {
     printf("Obtendo informações de diagnóstico...\n");
@@ -81,23 +100,6 @@ void obter_informacoes_diagnostico(TipoProcesso *processo, int N, int token, nod
             processo[token].State[k] = processo[nodes->nodes[j]].State[k];
         }
     }
-}
-
-void caso_de_processo_fault(TipoProcesso *processo, int token, int r)
-{
-    r = request(processo[token].id, token, 0);
-    printf("---------------------------------------------------------\n");
-    printf("\t\tO processo [%d] FALHOU no tempo %4.1f\n", token, time());
-    printf("---------------------------------------------------------\n");
-}
-
-void caso_de_processo_recovery(TipoProcesso *processo, int token, int r)
-{
-    release(processo[token].id, token);
-    schedule(test, 1.0, token);
-    printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
-    printf("\t\tO processo [%d] RECUPEROU no tempo %4.1f\n", token, time());
-    printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 }
 
 void libera_os_nodos(node_set *nodes)

@@ -1,39 +1,25 @@
-############ NOME DO EXECUTÁVEL #########
-nomePrograma=vcube
-
-###########DIRETÓRIOS CRIADOS ##############
-SRC=src
-UTILS=src/utils
-SMPL=src/smpl
-VCUBE=src/vcube
-BIN=src/bin
-
-########### PARAMETROS DE COMPILAÇÃO #############
 parametrosCompilacao=-Wall -lm #-Wshadow
-
+nomePrograma=vcube
 
 all: $(nomePrograma)
 
-$(nomePrograma): $(BIN)/main.o $(BIN)/vcube.o $(BIN)/smpl.o $(BIN)/rand.o $(BIN)/cisj.o $(BIN)/utils.o
-	$(LINK.c) -o $@ -Bstatic $(BIN)/main.o $(BIN)/vcube.o $(BIN)/smpl.o $(BIN)/rand.o $(BIN)/cisj.o $(BIN)/utils.o $(parametrosCompilacao)
-	
-$(BIN)/main.o: $(SRC)/main.c $(VCUBE)/vcube.h $(VCUBE)/cisj.h $(UTILS)/utils.h
-	$(COMPILE.c)  -g $(SRC)/main.c $(parametrosCompilacao) -o $(BIN)/main.o
+$(nomePrograma): vcube.o smpl.o rand.o cisj.o utils.o
+	$(LINK.c) -o $@ -Bstatic vcube.o smpl.o rand.o cisj.o utils.o $(parametrosCompilacao)
 
-$(BIN)/utils.o: $(UTILS)/utils.c $(UTILS)/utils.h
-	$(COMPILE.c)  -g $(UTILS)/utils.c $(parametrosCompilacao) -o $(BIN)/utils.o
+smpl.o: smpl.c smpl.h
+	$(COMPILE.c)  -g smpl.c $(parametrosCompilacao)
 
-$(BIN)/smpl.o: $(SMPL)/smpl.c $(SMPL)/smpl.h
-	$(COMPILE.c)  -g $(SMPL)/smpl.c $(parametrosCompilacao) -o $(BIN)/smpl.o
+vcube.o: vcube.c smpl.h
+	$(COMPILE.c) -g  vcube.c $(parametrosCompilacao)
 
-$(BIN)/vcube.o: $(VCUBE)/vcube.c $(SMPL)/smpl.h
-	$(COMPILE.c) -g  $(VCUBE)/vcube.c $(parametrosCompilacao) -o $(BIN)/vcube.o
+rand.o: rand.c
+	$(COMPILE.c) -g rand.c $(parametrosCompilacao)
 
-$(BIN)/rand.o: $(SMPL)/rand.c
-	$(COMPILE.c) -g $(SMPL)/rand.c $(parametrosCompilacao) -o $(BIN)/rand.o
+cisj.o: cisj.c cisj.h
+	$(COMPILE.c) -g cisj.c $(parametrosCompilacao)
 
-$(BIN)/cisj.o: $(VCUBE)/cisj.c $(VCUBE)/cisj.h
-	$(COMPILE.c) -g $(VCUBE)/cisj.c $(parametrosCompilacao) -o $(BIN)/cisj.o
+utils.o: utils.c utils.h
+	$(COMPILE.c) -g utils.c $(parametrosCompilacao)
 
 clean:
-	$(RM) $(BIN)/*.o $(nomePrograma) relat saida
+	$(RM) *.o $(nomePrograma) relat saida

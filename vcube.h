@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "../smpl/smpl.h"
+#include "smpl.h"
 #include "cisj.h"
 
 /* cada processo conta seu tempo */
@@ -18,6 +18,8 @@
 #define unknown -1
 #define correto 0
 #define falho 1
+
+#define MAX_TIME 150.0
 
 /*---- declaramos agora o TipoProcesso ----*/
 typedef struct
