@@ -1,3 +1,8 @@
+/* *********HEADER************
+ * Gustavo Valente - GRR20182557
+ * Bruno Farias - GRR20186715
+ * Ultima alteração: 12/01/23
+ **************************** */
 #ifndef __UTILS__
 #define __UTILS__
 
@@ -9,7 +14,7 @@ void inicia_simulacao();
 void resetaVetorState(int *vetor, int N, int idProcessoAtual);
 void imprimeVetorState(int *vetor, int N, int id);
 TipoProcesso *inicializa_processos(char *fa_name, TipoProcesso *processo, int i, int N);
-void escalonamento_inicial_de_eventos(int i, int N);
+void escalonamento_inicial_de_eventos(int i, int N, int intervalo);
 void caso_de_processo_fault(TipoProcesso *processo, int token, int r);
 void caso_de_processo_recovery(TipoProcesso *processo, int token, int r);
 void libera_os_nodos(node_set *nodes);

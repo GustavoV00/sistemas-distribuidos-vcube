@@ -1,3 +1,8 @@
+/* *********HEADER************
+ * Gustavo Valente - GRR20182557
+ * Bruno Farias - GRR20186715
+ * Ultima alteração: 12/01/23
+ **************************** */
 #include <stdio.h>
 #include <stdlib.h>
 #include "utils.h"
@@ -50,7 +55,11 @@ void imprimeVetorState(int *vetor, int N, int id)
     printf("State de [%d]: ", id);
     for (int j = 0; j < N; j++)
     {
-        printf("[%d] ", vetor[j]);
+        if(vetor[j] >= 0){
+            printf("[ %d] ", vetor[j]);
+        } else {
+            printf("[%d] ", vetor[j]);
+        }
     }
     printf("\n");
 }
@@ -81,22 +90,21 @@ TipoProcesso *inicializa_processos(char *fa_name, TipoProcesso *processo, int i,
     return processo;
 }
 
-void escalonamento_inicial_de_eventos(int i, int N)
+void escalonamento_inicial_de_eventos(int i, int N, int intervalo)
 {
     for (i = 0; i < N; i++)
     {
-        schedule(test, 30.0, i); // escalona o evento teste no nodo i daqui a 30 unidades de tempo
+        schedule(test, intervalo, i); // escalona o evento teste no nodo i daqui a 30 unidades de tempo
     }
 }
 
 void obter_informacoes_diagnostico(TipoProcesso *processo, int N, int token, node_set *nodes, int j)
 {
-    printf("Obtendo informações de diagnóstico...\n");
-    for (int k = 0; k < N; k++)
-    {
-        if (processo[nodes->nodes[j]].State[k] > processo[token].State[k])
+    //printf("\t\tObtendo informações de diagnóstico...\n");
+    for (int k = 0; k < N; k++){
+        if (k != token && (processo[nodes->nodes[j]].State[k] > processo[token].State[k]))
         {
-            printf("Copiando entrada ref. ao processo [%d] do processo [%d] para o processo [%d]...\n", k, nodes->nodes[j], token);
+            printf("\t\tCopiando entrada ref. ao processo [%d] do State do processo [%d] para o State do processo [%d]...\n", k, nodes->nodes[j], token);
             processo[token].State[k] = processo[nodes->nodes[j]].State[k];
         }
     }

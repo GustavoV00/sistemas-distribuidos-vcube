@@ -1,3 +1,8 @@
+/* *********HEADER************
+ * Gustavo Valente - GRR20182557
+ * Bruno Farias - GRR20186715
+ * Ultima alteração: 12/01/23
+ **************************** */
 #ifndef __VCUBE__
 #define __VCUBE__
 
@@ -19,7 +24,8 @@
 #define correto 0
 #define falho 1
 
-#define MAX_TIME 150.0
+#define MAX_TIME 300.0
+#define INT_TESTES 30.0
 
 /*---- declaramos agora o TipoProcesso ----*/
 typedef struct

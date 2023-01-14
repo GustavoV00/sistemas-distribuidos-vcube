@@ -3,6 +3,7 @@
     "*.erb": "erb",
     "smpl.h": "c",
     "cisj.h": "c",
-    "utils.h": "c"
+    "utils.h": "c",
+    "cmath": "c"
   }
 }

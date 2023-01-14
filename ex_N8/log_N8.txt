@@ -1,0 +1,1276 @@
+==============================================================================
+2022/2 - TRABALHO 1 SISTEMAS DISTRIBUIDOS
+Bruno Farias - GRR20186715 | Gustavo Valente - GRR20182557
+Tempo máximo: [300.0] - N de processos: [8]
+==============================================================================
+Inicializando os [8] processos...
+fa_name = 0, processo[0].id = 1
+State de [0]: [ 0] [-1] [-1] [-1] [-1] [-1] [-1] [-1] 
+fa_name = 1, processo[1].id = 4
+State de [1]: [-1] [ 0] [-1] [-1] [-1] [-1] [-1] [-1] 
+fa_name = 2, processo[2].id = 7
+State de [2]: [-1] [-1] [ 0] [-1] [-1] [-1] [-1] [-1] 
+fa_name = 3, processo[3].id = 10
+State de [3]: [-1] [-1] [-1] [ 0] [-1] [-1] [-1] [-1] 
+fa_name = 4, processo[4].id = 13
+State de [4]: [-1] [-1] [-1] [-1] [ 0] [-1] [-1] [-1] 
+fa_name = 5, processo[5].id = 16
+State de [5]: [-1] [-1] [-1] [-1] [-1] [ 0] [-1] [-1] 
+fa_name = 6, processo[6].id = 19
+State de [6]: [-1] [-1] [-1] [-1] [-1] [-1] [ 0] [-1] 
+fa_name = 7, processo[7].id = 22
+State de [7]: [-1] [-1] [-1] [-1] [-1] [-1] [-1] [ 0] 
+Processos inicializados com sucesso!
+
+Fazendo escalonamento inicial dos eventos...
+Escalonamento concluído!
+Criando faults e recoveries
+Finalizado a ação de faults e recoveries
+log2(8) = 3
+
+
+INTERVALO [1] 
+
+State de [0]: [ 0] [-1] [-1] [-1] [-1] [-1] [-1] [-1] 
+State de [1]: [-1] [ 0] [-1] [-1] [-1] [-1] [-1] [-1] 
+State de [2]: [-1] [-1] [ 0] [-1] [-1] [-1] [-1] [-1] 
+State de [3]: [-1] [-1] [-1] [ 0] [-1] [-1] [-1] [-1] 
+State de [4]: [-1] [-1] [-1] [-1] [ 0] [-1] [-1] [-1] 
+State de [5]: [-1] [-1] [-1] [-1] [-1] [ 0] [-1] [-1] 
+State de [6]: [-1] [-1] [-1] [-1] [-1] [-1] [ 0] [-1] 
+State de [7]: [-1] [-1] [-1] [-1] [-1] [-1] [-1] [ 0] 
+
+===================================
+O processo [0] testando no tempo 30.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [1] para o State do processo [0]...
+s: [2] - C(0, 2): 2 3 
+	i: [0] - j: [2] - C(2, 2): 0 1 
+		(TESTE) O processo [0] testou o processo [2] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [2] do State do processo [2] para o State do processo [0]...
+	i: [0] - j: [3] - C(3, 2): 1 0 
+s: [3] - C(0, 3): 4 5 6 7 
+	i: [0] - j: [4] - C(4, 3): 0 1 2 3 
+		(TESTE) O processo [0] testou o processo [4] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [4] do State do processo [4] para o State do processo [0]...
+	i: [0] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [0] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [0] - j: [7] - C(7, 3): 3 0 1 2 
+
+===================================
+O processo [1] testando no tempo 30.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [0] do State do processo [0] para o State do processo [1]...
+		Copiando entrada ref. ao processo [2] do State do processo [0] para o State do processo [1]...
+		Copiando entrada ref. ao processo [4] do State do processo [0] para o State do processo [1]...
+s: [2] - C(1, 2): 3 2 
+	i: [1] - j: [3] - C(3, 2): 1 0 
+		(TESTE) O processo [1] testou o processo [3] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [3] para o State do processo [1]...
+	i: [1] - j: [2] - C(2, 2): 0 1 
+s: [3] - C(1, 3): 5 6 7 4 
+	i: [1] - j: [5] - C(5, 3): 1 2 3 0 
+		(TESTE) O processo [1] testou o processo [5] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [5] do State do processo [5] para o State do processo [1]...
+	i: [1] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [1] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [1] - j: [4] - C(4, 3): 0 1 2 3 
+
+===================================
+O processo [2] testando no tempo 30.0: 
+s: [1] - C(2, 1): 3 
+	i: [2] - j: [3] - C(3, 1): 2 
+		(TESTE) O processo [2] testou o processo [3] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [3] para o State do processo [2]...
+s: [2] - C(2, 2): 0 1 
+	i: [2] - j: [0] - C(0, 2): 2 3 
+		(TESTE) O processo [2] testou o processo [0] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [0] do State do processo [0] para o State do processo [2]...
+		Copiando entrada ref. ao processo [1] do State do processo [0] para o State do processo [2]...
+		Copiando entrada ref. ao processo [4] do State do processo [0] para o State do processo [2]...
+	i: [2] - j: [1] - C(1, 2): 3 2 
+s: [3] - C(2, 3): 6 7 4 5 
+	i: [2] - j: [6] - C(6, 3): 2 3 0 1 
+		(TESTE) O processo [2] testou o processo [6] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [6] do State do processo [6] para o State do processo [2]...
+	i: [2] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [2] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [2] - j: [5] - C(5, 3): 1 2 3 0 
+
+===================================
+O processo [3] testando no tempo 30.0: 
+s: [1] - C(3, 1): 2 
+	i: [3] - j: [2] - C(2, 1): 3 
+		(TESTE) O processo [3] testou o processo [2] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [0] do State do processo [2] para o State do processo [3]...
+		Copiando entrada ref. ao processo [1] do State do processo [2] para o State do processo [3]...
+		Copiando entrada ref. ao processo [2] do State do processo [2] para o State do processo [3]...
+		Copiando entrada ref. ao processo [4] do State do processo [2] para o State do processo [3]...
+		Copiando entrada ref. ao processo [6] do State do processo [2] para o State do processo [3]...
+s: [2] - C(3, 2): 1 0 
+	i: [3] - j: [1] - C(1, 2): 3 2 
+		(TESTE) O processo [3] testou o processo [1] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [5] do State do processo [1] para o State do processo [3]...
+	i: [3] - j: [0] - C(0, 2): 2 3 
+s: [3] - C(3, 3): 7 4 5 6 
+	i: [3] - j: [7] - C(7, 3): 3 0 1 2 
+		(TESTE) O processo [3] testou o processo [7] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [7] do State do processo [7] para o State do processo [3]...
+	i: [3] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [3] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [3] - j: [6] - C(6, 3): 2 3 0 1 
+
+===================================
+O processo [4] testando no tempo 30.0: 
+s: [1] - C(4, 1): 5 
+	i: [4] - j: [5] - C(5, 1): 4 
+		(TESTE) O processo [4] testou o processo [5] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [5] do State do processo [5] para o State do processo [4]...
+s: [2] - C(4, 2): 6 7 
+	i: [4] - j: [6] - C(6, 2): 4 5 
+		(TESTE) O processo [4] testou o processo [6] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [6] do State do processo [6] para o State do processo [4]...
+	i: [4] - j: [7] - C(7, 2): 5 4 
+s: [3] - C(4, 3): 0 1 2 3 
+	i: [4] - j: [0] - C(0, 3): 4 5 6 7 
+		(TESTE) O processo [4] testou o processo [0] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [0] do State do processo [0] para o State do processo [4]...
+		Copiando entrada ref. ao processo [1] do State do processo [0] para o State do processo [4]...
+		Copiando entrada ref. ao processo [2] do State do processo [0] para o State do processo [4]...
+	i: [4] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [4] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [4] - j: [3] - C(3, 3): 7 4 5 6 
+
+===================================
+O processo [5] testando no tempo 30.0: 
+s: [1] - C(5, 1): 4 
+	i: [5] - j: [4] - C(4, 1): 5 
+		(TESTE) O processo [5] testou o processo [4] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [0] do State do processo [4] para o State do processo [5]...
+		Copiando entrada ref. ao processo [1] do State do processo [4] para o State do processo [5]...
+		Copiando entrada ref. ao processo [2] do State do processo [4] para o State do processo [5]...
+		Copiando entrada ref. ao processo [4] do State do processo [4] para o State do processo [5]...
+		Copiando entrada ref. ao processo [6] do State do processo [4] para o State do processo [5]...
+s: [2] - C(5, 2): 7 6 
+	i: [5] - j: [7] - C(7, 2): 5 4 
+		(TESTE) O processo [5] testou o processo [7] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [7] do State do processo [7] para o State do processo [5]...
+	i: [5] - j: [6] - C(6, 2): 4 5 
+s: [3] - C(5, 3): 1 2 3 0 
+	i: [5] - j: [1] - C(1, 3): 5 6 7 4 
+		(TESTE) O processo [5] testou o processo [1] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [1] para o State do processo [5]...
+	i: [5] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [5] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [5] - j: [0] - C(0, 3): 4 5 6 7 
+
+===================================
+O processo [6] testando no tempo 30.0: 
+s: [1] - C(6, 1): 7 
+	i: [6] - j: [7] - C(7, 1): 6 
+		(TESTE) O processo [6] testou o processo [7] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [7] do State do processo [7] para o State do processo [6]...
+s: [2] - C(6, 2): 4 5 
+	i: [6] - j: [4] - C(4, 2): 6 7 
+		(TESTE) O processo [6] testou o processo [4] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [0] do State do processo [4] para o State do processo [6]...
+		Copiando entrada ref. ao processo [1] do State do processo [4] para o State do processo [6]...
+		Copiando entrada ref. ao processo [2] do State do processo [4] para o State do processo [6]...
+		Copiando entrada ref. ao processo [4] do State do processo [4] para o State do processo [6]...
+		Copiando entrada ref. ao processo [5] do State do processo [4] para o State do processo [6]...
+	i: [6] - j: [5] - C(5, 2): 7 6 
+s: [3] - C(6, 3): 2 3 0 1 
+	i: [6] - j: [2] - C(2, 3): 6 7 4 5 
+		(TESTE) O processo [6] testou o processo [2] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [2] para o State do processo [6]...
+	i: [6] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [6] - j: [0] - C(0, 3): 4 5 6 7 
+	i: [6] - j: [1] - C(1, 3): 5 6 7 4 
+
+===================================
+O processo [7] testando no tempo 30.0: 
+s: [1] - C(7, 1): 6 
+	i: [7] - j: [6] - C(6, 1): 7 
+		(TESTE) O processo [7] testou o processo [6] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [0] do State do processo [6] para o State do processo [7]...
+		Copiando entrada ref. ao processo [1] do State do processo [6] para o State do processo [7]...
+		Copiando entrada ref. ao processo [2] do State do processo [6] para o State do processo [7]...
+		Copiando entrada ref. ao processo [3] do State do processo [6] para o State do processo [7]...
+		Copiando entrada ref. ao processo [4] do State do processo [6] para o State do processo [7]...
+		Copiando entrada ref. ao processo [5] do State do processo [6] para o State do processo [7]...
+		Copiando entrada ref. ao processo [6] do State do processo [6] para o State do processo [7]...
+s: [2] - C(7, 2): 5 4 
+	i: [7] - j: [5] - C(5, 2): 7 6 
+		(TESTE) O processo [7] testou o processo [5] no tempo 30.0: CORRETO
+	i: [7] - j: [4] - C(4, 2): 6 7 
+s: [3] - C(7, 3): 3 0 1 2 
+	i: [7] - j: [3] - C(3, 3): 7 4 5 6 
+		(TESTE) O processo [7] testou o processo [3] no tempo 30.0: CORRETO
+	i: [7] - j: [0] - C(0, 3): 4 5 6 7 
+	i: [7] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [7] - j: [2] - C(2, 3): 6 7 4 5 
+
+
+INTERVALO [2] 
+
+State de [0]: [ 0] [ 0] [ 0] [-1] [ 0] [-1] [-1] [-1] 
+State de [1]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [-1] [-1] 
+State de [2]: [ 0] [ 0] [ 0] [ 0] [ 0] [-1] [ 0] [-1] 
+State de [3]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [4]: [ 0] [ 0] [ 0] [-1] [ 0] [ 0] [ 0] [-1] 
+State de [5]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [6]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [7]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 60.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 60.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [1] para o State do processo [0]...
+		Copiando entrada ref. ao processo [5] do State do processo [1] para o State do processo [0]...
+s: [2] - C(0, 2): 2 3 
+	i: [0] - j: [2] - C(2, 2): 0 1 
+		(TESTE) O processo [0] testou o processo [2] no tempo 60.0: CORRETO
+		Copiando entrada ref. ao processo [6] do State do processo [2] para o State do processo [0]...
+	i: [0] - j: [3] - C(3, 2): 1 0 
+s: [3] - C(0, 3): 4 5 6 7 
+	i: [0] - j: [4] - C(4, 3): 0 1 2 3 
+		(TESTE) O processo [0] testou o processo [4] no tempo 60.0: CORRETO
+	i: [0] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [0] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [0] - j: [7] - C(7, 3): 3 0 1 2 
+
+===================================
+O processo [1] testando no tempo 60.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 60.0: CORRETO
+		Copiando entrada ref. ao processo [6] do State do processo [0] para o State do processo [1]...
+s: [2] - C(1, 2): 3 2 
+	i: [1] - j: [3] - C(3, 2): 1 0 
+		(TESTE) O processo [1] testou o processo [3] no tempo 60.0: CORRETO
+		Copiando entrada ref. ao processo [7] do State do processo [3] para o State do processo [1]...
+	i: [1] - j: [2] - C(2, 2): 0 1 
+s: [3] - C(1, 3): 5 6 7 4 
+	i: [1] - j: [5] - C(5, 3): 1 2 3 0 
+		(TESTE) O processo [1] testou o processo [5] no tempo 60.0: CORRETO
+	i: [1] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [1] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [1] - j: [4] - C(4, 3): 0 1 2 3 
+
+===================================
+O processo [2] testando no tempo 60.0: 
+s: [1] - C(2, 1): 3 
+	i: [2] - j: [3] - C(3, 1): 2 
+		(TESTE) O processo [2] testou o processo [3] no tempo 60.0: CORRETO
+		Copiando entrada ref. ao processo [5] do State do processo [3] para o State do processo [2]...
+		Copiando entrada ref. ao processo [7] do State do processo [3] para o State do processo [2]...
+s: [2] - C(2, 2): 0 1 
+	i: [2] - j: [0] - C(0, 2): 2 3 
+		(TESTE) O processo [2] testou o processo [0] no tempo 60.0: CORRETO
+	i: [2] - j: [1] - C(1, 2): 3 2 
+s: [3] - C(2, 3): 6 7 4 5 
+	i: [2] - j: [6] - C(6, 3): 2 3 0 1 
+		(TESTE) O processo [2] testou o processo [6] no tempo 60.0: CORRETO
+	i: [2] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [2] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [2] - j: [5] - C(5, 3): 1 2 3 0 
+
+===================================
+O processo [3] testando no tempo 60.0: 
+s: [1] - C(3, 1): 2 
+	i: [3] - j: [2] - C(2, 1): 3 
+		(TESTE) O processo [3] testou o processo [2] no tempo 60.0: CORRETO
+s: [2] - C(3, 2): 1 0 
+	i: [3] - j: [1] - C(1, 2): 3 2 
+		(TESTE) O processo [3] testou o processo [1] no tempo 60.0: CORRETO
+	i: [3] - j: [0] - C(0, 2): 2 3 
+s: [3] - C(3, 3): 7 4 5 6 
+	i: [3] - j: [7] - C(7, 3): 3 0 1 2 
+		(TESTE) O processo [3] testou o processo [7] no tempo 60.0: CORRETO
+	i: [3] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [3] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [3] - j: [6] - C(6, 3): 2 3 0 1 
+
+===================================
+O processo [4] testando no tempo 60.0: 
+s: [1] - C(4, 1): 5 
+	i: [4] - j: [5] - C(5, 1): 4 
+		(TESTE) O processo [4] testou o processo [5] no tempo 60.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [5] para o State do processo [4]...
+		Copiando entrada ref. ao processo [7] do State do processo [5] para o State do processo [4]...
+s: [2] - C(4, 2): 6 7 
+	i: [4] - j: [6] - C(6, 2): 4 5 
+		(TESTE) O processo [4] testou o processo [6] no tempo 60.0: CORRETO
+	i: [4] - j: [7] - C(7, 2): 5 4 
+s: [3] - C(4, 3): 0 1 2 3 
+	i: [4] - j: [0] - C(0, 3): 4 5 6 7 
+		(TESTE) O processo [4] testou o processo [0] no tempo 60.0: CORRETO
+	i: [4] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [4] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [4] - j: [3] - C(3, 3): 7 4 5 6 
+
+===================================
+O processo [5] testando no tempo 60.0: 
+s: [1] - C(5, 1): 4 
+	i: [5] - j: [4] - C(4, 1): 5 
+		(TESTE) O processo [5] testou o processo [4] no tempo 60.0: CORRETO
+s: [2] - C(5, 2): 7 6 
+	i: [5] - j: [7] - C(7, 2): 5 4 
+		(TESTE) O processo [5] testou o processo [7] no tempo 60.0: CORRETO
+	i: [5] - j: [6] - C(6, 2): 4 5 
+s: [3] - C(5, 3): 1 2 3 0 
+	i: [5] - j: [1] - C(1, 3): 5 6 7 4 
+		(TESTE) O processo [5] testou o processo [1] no tempo 60.0: CORRETO
+	i: [5] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [5] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [5] - j: [0] - C(0, 3): 4 5 6 7 
+
+===================================
+O processo [6] testando no tempo 60.0: 
+s: [1] - C(6, 1): 7 
+	i: [6] - j: [7] - C(7, 1): 6 
+		(TESTE) O processo [6] testou o processo [7] no tempo 60.0: CORRETO
+s: [2] - C(6, 2): 4 5 
+	i: [6] - j: [4] - C(4, 2): 6 7 
+		(TESTE) O processo [6] testou o processo [4] no tempo 60.0: CORRETO
+	i: [6] - j: [5] - C(5, 2): 7 6 
+s: [3] - C(6, 3): 2 3 0 1 
+	i: [6] - j: [2] - C(2, 3): 6 7 4 5 
+		(TESTE) O processo [6] testou o processo [2] no tempo 60.0: CORRETO
+	i: [6] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [6] - j: [0] - C(0, 3): 4 5 6 7 
+	i: [6] - j: [1] - C(1, 3): 5 6 7 4 
+
+===================================
+O processo [7] testando no tempo 60.0: 
+s: [1] - C(7, 1): 6 
+	i: [7] - j: [6] - C(6, 1): 7 
+		(TESTE) O processo [7] testou o processo [6] no tempo 60.0: CORRETO
+s: [2] - C(7, 2): 5 4 
+	i: [7] - j: [5] - C(5, 2): 7 6 
+		(TESTE) O processo [7] testou o processo [5] no tempo 60.0: CORRETO
+	i: [7] - j: [4] - C(4, 2): 6 7 
+s: [3] - C(7, 3): 3 0 1 2 
+	i: [7] - j: [3] - C(3, 3): 7 4 5 6 
+		(TESTE) O processo [7] testou o processo [3] no tempo 60.0: CORRETO
+	i: [7] - j: [0] - C(0, 3): 4 5 6 7 
+	i: [7] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [7] - j: [2] - C(2, 3): 6 7 4 5 
+
+
+---------------------------------------------------------
+		O processo [1] FALHOU no tempo 65.0
+---------------------------------------------------------
+
+
+
+INTERVALO [3] 
+
+State de [0]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [-1] 
+State de [1]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [2]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [3]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [4]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [5]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [6]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [7]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 90.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 90.0: FALHO
+		Incrementando entrada na posição [1]...
+s: [2] - C(0, 2): 2 3 
+	i: [0] - j: [2] - C(2, 2): 0 1 
+		(TESTE) O processo [0] testou o processo [2] no tempo 90.0: CORRETO
+		Copiando entrada ref. ao processo [7] do State do processo [2] para o State do processo [0]...
+	i: [0] - j: [3] - C(3, 2): 1 0 
+s: [3] - C(0, 3): 4 5 6 7 
+	i: [0] - j: [4] - C(4, 3): 0 1 2 3 
+		(TESTE) O processo [0] testou o processo [4] no tempo 90.0: CORRETO
+	i: [0] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [0] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [0] - j: [7] - C(7, 3): 3 0 1 2 
+
+===================================
+O processo [2] testando no tempo 90.0: 
+s: [1] - C(2, 1): 3 
+	i: [2] - j: [3] - C(3, 1): 2 
+		(TESTE) O processo [2] testou o processo [3] no tempo 90.0: CORRETO
+s: [2] - C(2, 2): 0 1 
+	i: [2] - j: [0] - C(0, 2): 2 3 
+		(TESTE) O processo [2] testou o processo [0] no tempo 90.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [0] para o State do processo [2]...
+	i: [2] - j: [1] - C(1, 2): 3 2 
+s: [3] - C(2, 3): 6 7 4 5 
+	i: [2] - j: [6] - C(6, 3): 2 3 0 1 
+		(TESTE) O processo [2] testou o processo [6] no tempo 90.0: CORRETO
+	i: [2] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [2] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [2] - j: [5] - C(5, 3): 1 2 3 0 
+
+===================================
+O processo [3] testando no tempo 90.0: 
+s: [1] - C(3, 1): 2 
+	i: [3] - j: [2] - C(2, 1): 3 
+		(TESTE) O processo [3] testou o processo [2] no tempo 90.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [2] para o State do processo [3]...
+s: [2] - C(3, 2): 1 0 
+	i: [3] - j: [1] - C(1, 2): 3 2 
+		(TESTE) O processo [3] testou o processo [1] no tempo 90.0: FALHO
+	i: [3] - j: [0] - C(0, 2): 2 3 
+s: [3] - C(3, 3): 7 4 5 6 
+	i: [3] - j: [7] - C(7, 3): 3 0 1 2 
+		(TESTE) O processo [3] testou o processo [7] no tempo 90.0: CORRETO
+	i: [3] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [3] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [3] - j: [6] - C(6, 3): 2 3 0 1 
+
+===================================
+O processo [4] testando no tempo 90.0: 
+s: [1] - C(4, 1): 5 
+	i: [4] - j: [5] - C(5, 1): 4 
+		(TESTE) O processo [4] testou o processo [5] no tempo 90.0: CORRETO
+s: [2] - C(4, 2): 6 7 
+	i: [4] - j: [6] - C(6, 2): 4 5 
+		(TESTE) O processo [4] testou o processo [6] no tempo 90.0: CORRETO
+	i: [4] - j: [7] - C(7, 2): 5 4 
+s: [3] - C(4, 3): 0 1 2 3 
+	i: [4] - j: [0] - C(0, 3): 4 5 6 7 
+		(TESTE) O processo [4] testou o processo [0] no tempo 90.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [0] para o State do processo [4]...
+	i: [4] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [4] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [4] - j: [3] - C(3, 3): 7 4 5 6 
+
+===================================
+O processo [5] testando no tempo 90.0: 
+s: [1] - C(5, 1): 4 
+	i: [5] - j: [4] - C(4, 1): 5 
+		(TESTE) O processo [5] testou o processo [4] no tempo 90.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [4] para o State do processo [5]...
+s: [2] - C(5, 2): 7 6 
+	i: [5] - j: [7] - C(7, 2): 5 4 
+		(TESTE) O processo [5] testou o processo [7] no tempo 90.0: CORRETO
+	i: [5] - j: [6] - C(6, 2): 4 5 
+s: [3] - C(5, 3): 1 2 3 0 
+	i: [5] - j: [1] - C(1, 3): 5 6 7 4 
+		(TESTE) O processo [5] testou o processo [1] no tempo 90.0: FALHO
+	i: [5] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [5] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [5] - j: [0] - C(0, 3): 4 5 6 7 
+
+===================================
+O processo [6] testando no tempo 90.0: 
+s: [1] - C(6, 1): 7 
+	i: [6] - j: [7] - C(7, 1): 6 
+		(TESTE) O processo [6] testou o processo [7] no tempo 90.0: CORRETO
+s: [2] - C(6, 2): 4 5 
+	i: [6] - j: [4] - C(4, 2): 6 7 
+		(TESTE) O processo [6] testou o processo [4] no tempo 90.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [4] para o State do processo [6]...
+	i: [6] - j: [5] - C(5, 2): 7 6 
+s: [3] - C(6, 3): 2 3 0 1 
+	i: [6] - j: [2] - C(2, 3): 6 7 4 5 
+		(TESTE) O processo [6] testou o processo [2] no tempo 90.0: CORRETO
+	i: [6] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [6] - j: [0] - C(0, 3): 4 5 6 7 
+	i: [6] - j: [1] - C(1, 3): 5 6 7 4 
+
+===================================
+O processo [7] testando no tempo 90.0: 
+s: [1] - C(7, 1): 6 
+	i: [7] - j: [6] - C(6, 1): 7 
+		(TESTE) O processo [7] testou o processo [6] no tempo 90.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [6] para o State do processo [7]...
+s: [2] - C(7, 2): 5 4 
+	i: [7] - j: [5] - C(5, 2): 7 6 
+		(TESTE) O processo [7] testou o processo [5] no tempo 90.0: CORRETO
+	i: [7] - j: [4] - C(4, 2): 6 7 
+s: [3] - C(7, 3): 3 0 1 2 
+	i: [7] - j: [3] - C(3, 3): 7 4 5 6 
+		(TESTE) O processo [7] testou o processo [3] no tempo 90.0: CORRETO
+	i: [7] - j: [0] - C(0, 3): 4 5 6 7 
+	i: [7] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [7] - j: [2] - C(2, 3): 6 7 4 5 
+
+
+---------------------------------------------------------
+		O processo [6] FALHOU no tempo 110.0
+---------------------------------------------------------
+
+
+
+INTERVALO [4] 
+
+State de [0]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [1]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [2]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [3]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [4]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [5]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [6]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [7]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 120.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 120.0: FALHO
+s: [2] - C(0, 2): 2 3 
+	i: [0] - j: [2] - C(2, 2): 0 1 
+		(TESTE) O processo [0] testou o processo [2] no tempo 120.0: CORRETO
+	i: [0] - j: [3] - C(3, 2): 1 0 
+s: [3] - C(0, 3): 4 5 6 7 
+	i: [0] - j: [4] - C(4, 3): 0 1 2 3 
+		(TESTE) O processo [0] testou o processo [4] no tempo 120.0: CORRETO
+	i: [0] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [0] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [0] - j: [7] - C(7, 3): 3 0 1 2 
+
+===================================
+O processo [2] testando no tempo 120.0: 
+s: [1] - C(2, 1): 3 
+	i: [2] - j: [3] - C(3, 1): 2 
+		(TESTE) O processo [2] testou o processo [3] no tempo 120.0: CORRETO
+s: [2] - C(2, 2): 0 1 
+	i: [2] - j: [0] - C(0, 2): 2 3 
+		(TESTE) O processo [2] testou o processo [0] no tempo 120.0: CORRETO
+	i: [2] - j: [1] - C(1, 2): 3 2 
+s: [3] - C(2, 3): 6 7 4 5 
+	i: [2] - j: [6] - C(6, 3): 2 3 0 1 
+		(TESTE) O processo [2] testou o processo [6] no tempo 120.0: FALHO
+		Incrementando entrada na posição [6]...
+	i: [2] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [2] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [2] - j: [5] - C(5, 3): 1 2 3 0 
+
+===================================
+O processo [3] testando no tempo 120.0: 
+s: [1] - C(3, 1): 2 
+	i: [3] - j: [2] - C(2, 1): 3 
+		(TESTE) O processo [3] testou o processo [2] no tempo 120.0: CORRETO
+		Copiando entrada ref. ao processo [6] do State do processo [2] para o State do processo [3]...
+s: [2] - C(3, 2): 1 0 
+	i: [3] - j: [1] - C(1, 2): 3 2 
+		(TESTE) O processo [3] testou o processo [1] no tempo 120.0: FALHO
+	i: [3] - j: [0] - C(0, 2): 2 3 
+s: [3] - C(3, 3): 7 4 5 6 
+	i: [3] - j: [7] - C(7, 3): 3 0 1 2 
+		(TESTE) O processo [3] testou o processo [7] no tempo 120.0: CORRETO
+	i: [3] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [3] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [3] - j: [6] - C(6, 3): 2 3 0 1 
+
+===================================
+O processo [4] testando no tempo 120.0: 
+s: [1] - C(4, 1): 5 
+	i: [4] - j: [5] - C(5, 1): 4 
+		(TESTE) O processo [4] testou o processo [5] no tempo 120.0: CORRETO
+s: [2] - C(4, 2): 6 7 
+	i: [4] - j: [6] - C(6, 2): 4 5 
+		(TESTE) O processo [4] testou o processo [6] no tempo 120.0: FALHO
+		Incrementando entrada na posição [6]...
+	i: [4] - j: [7] - C(7, 2): 5 4 
+s: [3] - C(4, 3): 0 1 2 3 
+	i: [4] - j: [0] - C(0, 3): 4 5 6 7 
+		(TESTE) O processo [4] testou o processo [0] no tempo 120.0: CORRETO
+	i: [4] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [4] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [4] - j: [3] - C(3, 3): 7 4 5 6 
+
+===================================
+O processo [5] testando no tempo 120.0: 
+s: [1] - C(5, 1): 4 
+	i: [5] - j: [4] - C(4, 1): 5 
+		(TESTE) O processo [5] testou o processo [4] no tempo 120.0: CORRETO
+		Copiando entrada ref. ao processo [6] do State do processo [4] para o State do processo [5]...
+s: [2] - C(5, 2): 7 6 
+	i: [5] - j: [7] - C(7, 2): 5 4 
+		(TESTE) O processo [5] testou o processo [7] no tempo 120.0: CORRETO
+	i: [5] - j: [6] - C(6, 2): 4 5 
+s: [3] - C(5, 3): 1 2 3 0 
+	i: [5] - j: [1] - C(1, 3): 5 6 7 4 
+		(TESTE) O processo [5] testou o processo [1] no tempo 120.0: FALHO
+	i: [5] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [5] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [5] - j: [0] - C(0, 3): 4 5 6 7 
+
+===================================
+O processo [7] testando no tempo 120.0: 
+s: [1] - C(7, 1): 6 
+	i: [7] - j: [6] - C(6, 1): 7 
+		(TESTE) O processo [7] testou o processo [6] no tempo 120.0: FALHO
+		Incrementando entrada na posição [6]...
+s: [2] - C(7, 2): 5 4 
+	i: [7] - j: [5] - C(5, 2): 7 6 
+		(TESTE) O processo [7] testou o processo [5] no tempo 120.0: CORRETO
+	i: [7] - j: [4] - C(4, 2): 6 7 
+s: [3] - C(7, 3): 3 0 1 2 
+	i: [7] - j: [3] - C(3, 3): 7 4 5 6 
+		(TESTE) O processo [7] testou o processo [3] no tempo 120.0: CORRETO
+	i: [7] - j: [0] - C(0, 3): 4 5 6 7 
+	i: [7] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [7] - j: [2] - C(2, 3): 6 7 4 5 
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		O processo [1] RECUPEROU no tempo 121.0
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+===================================
+O processo [1] testando no tempo 122.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 122.0: CORRETO
+s: [2] - C(1, 2): 3 2 
+	i: [1] - j: [3] - C(3, 2): 1 0 
+		(TESTE) O processo [1] testou o processo [3] no tempo 122.0: CORRETO
+		Copiando entrada ref. ao processo [6] do State do processo [3] para o State do processo [1]...
+	i: [1] - j: [2] - C(2, 2): 0 1 
+s: [3] - C(1, 3): 5 6 7 4 
+	i: [1] - j: [5] - C(5, 3): 1 2 3 0 
+		(TESTE) O processo [1] testou o processo [5] no tempo 122.0: CORRETO
+	i: [1] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [1] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [1] - j: [4] - C(4, 3): 0 1 2 3 
+
+
+---------------------------------------------------------
+		O processo [2] FALHOU no tempo 134.0
+---------------------------------------------------------
+
+
+
+---------------------------------------------------------
+		O processo [3] FALHOU no tempo 136.0
+---------------------------------------------------------
+
+
+
+---------------------------------------------------------
+		O processo [7] FALHOU no tempo 145.0
+---------------------------------------------------------
+
+
+
+INTERVALO [5] 
+
+State de [0]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [1]: [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [2]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [3]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [4]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [5]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [6]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [7]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+
+===================================
+O processo [0] testando no tempo 150.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 150.0: CORRETO
+		Incrementando entrada na posição [1]...
+		Copiando entrada ref. ao processo [6] do State do processo [1] para o State do processo [0]...
+s: [2] - C(0, 2): 2 3 
+	i: [0] - j: [2] - C(2, 2): 0 1 
+		(TESTE) O processo [0] testou o processo [2] no tempo 150.0: FALHO
+		Incrementando entrada na posição [2]...
+	i: [0] - j: [3] - C(3, 2): 1 0 
+s: [3] - C(0, 3): 4 5 6 7 
+	i: [0] - j: [4] - C(4, 3): 0 1 2 3 
+		(TESTE) O processo [0] testou o processo [4] no tempo 150.0: CORRETO
+	i: [0] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [0] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [0] - j: [7] - C(7, 3): 3 0 1 2 
+
+===================================
+O processo [4] testando no tempo 150.0: 
+s: [1] - C(4, 1): 5 
+	i: [4] - j: [5] - C(5, 1): 4 
+		(TESTE) O processo [4] testou o processo [5] no tempo 150.0: CORRETO
+s: [2] - C(4, 2): 6 7 
+	i: [4] - j: [6] - C(6, 2): 4 5 
+		(TESTE) O processo [4] testou o processo [6] no tempo 150.0: FALHO
+	i: [4] - j: [7] - C(7, 2): 5 4 
+s: [3] - C(4, 3): 0 1 2 3 
+	i: [4] - j: [0] - C(0, 3): 4 5 6 7 
+		(TESTE) O processo [4] testou o processo [0] no tempo 150.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [0] para o State do processo [4]...
+		Copiando entrada ref. ao processo [2] do State do processo [0] para o State do processo [4]...
+	i: [4] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [4] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [4] - j: [3] - C(3, 3): 7 4 5 6 
+
+===================================
+O processo [5] testando no tempo 150.0: 
+s: [1] - C(5, 1): 4 
+	i: [5] - j: [4] - C(4, 1): 5 
+		(TESTE) O processo [5] testou o processo [4] no tempo 150.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [4] para o State do processo [5]...
+		Copiando entrada ref. ao processo [2] do State do processo [4] para o State do processo [5]...
+s: [2] - C(5, 2): 7 6 
+	i: [5] - j: [7] - C(7, 2): 5 4 
+		(TESTE) O processo [5] testou o processo [7] no tempo 150.0: FALHO
+		Incrementando entrada na posição [7]...
+	i: [5] - j: [6] - C(6, 2): 4 5 
+s: [3] - C(5, 3): 1 2 3 0 
+	i: [5] - j: [1] - C(1, 3): 5 6 7 4 
+		(TESTE) O processo [5] testou o processo [1] no tempo 150.0: CORRETO
+	i: [5] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [5] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [5] - j: [0] - C(0, 3): 4 5 6 7 
+
+===================================
+O processo [1] testando no tempo 152.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 152.0: CORRETO
+		Copiando entrada ref. ao processo [2] do State do processo [0] para o State do processo [1]...
+s: [2] - C(1, 2): 3 2 
+	i: [1] - j: [3] - C(3, 2): 1 0 
+		(TESTE) O processo [1] testou o processo [3] no tempo 152.0: FALHO
+		Incrementando entrada na posição [3]...
+	i: [1] - j: [2] - C(2, 2): 0 1 
+s: [3] - C(1, 3): 5 6 7 4 
+	i: [1] - j: [5] - C(5, 3): 1 2 3 0 
+		(TESTE) O processo [1] testou o processo [5] no tempo 152.0: CORRETO
+		Copiando entrada ref. ao processo [7] do State do processo [5] para o State do processo [1]...
+	i: [1] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [1] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [1] - j: [4] - C(4, 3): 0 1 2 3 
+
+
+INTERVALO [6] 
+
+State de [0]: [ 0] [ 2] [ 1] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [1]: [ 0] [ 0] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [2]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [3]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [4]: [ 0] [ 2] [ 1] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [5]: [ 0] [ 2] [ 1] [ 0] [ 0] [ 0] [ 1] [ 1] 
+State de [6]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [7]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+
+===================================
+O processo [0] testando no tempo 180.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 180.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [1] para o State do processo [0]...
+		Copiando entrada ref. ao processo [7] do State do processo [1] para o State do processo [0]...
+s: [2] - C(0, 2): 2 3 
+	i: [0] - j: [2] - C(2, 2): 0 1 
+		(TESTE) O processo [0] testou o processo [2] no tempo 180.0: FALHO
+	i: [0] - j: [3] - C(3, 2): 1 0 
+s: [3] - C(0, 3): 4 5 6 7 
+	i: [0] - j: [4] - C(4, 3): 0 1 2 3 
+		(TESTE) O processo [0] testou o processo [4] no tempo 180.0: CORRETO
+	i: [0] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [0] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [0] - j: [7] - C(7, 3): 3 0 1 2 
+
+===================================
+O processo [4] testando no tempo 180.0: 
+s: [1] - C(4, 1): 5 
+	i: [4] - j: [5] - C(5, 1): 4 
+		(TESTE) O processo [4] testou o processo [5] no tempo 180.0: CORRETO
+		Copiando entrada ref. ao processo [7] do State do processo [5] para o State do processo [4]...
+s: [2] - C(4, 2): 6 7 
+	i: [4] - j: [6] - C(6, 2): 4 5 
+		(TESTE) O processo [4] testou o processo [6] no tempo 180.0: FALHO
+	i: [4] - j: [7] - C(7, 2): 5 4 
+s: [3] - C(4, 3): 0 1 2 3 
+	i: [4] - j: [0] - C(0, 3): 4 5 6 7 
+		(TESTE) O processo [4] testou o processo [0] no tempo 180.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [0] para o State do processo [4]...
+	i: [4] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [4] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [4] - j: [3] - C(3, 3): 7 4 5 6 
+
+===================================
+O processo [5] testando no tempo 180.0: 
+s: [1] - C(5, 1): 4 
+	i: [5] - j: [4] - C(4, 1): 5 
+		(TESTE) O processo [5] testou o processo [4] no tempo 180.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [4] para o State do processo [5]...
+s: [2] - C(5, 2): 7 6 
+	i: [5] - j: [7] - C(7, 2): 5 4 
+		(TESTE) O processo [5] testou o processo [7] no tempo 180.0: FALHO
+	i: [5] - j: [6] - C(6, 2): 4 5 
+s: [3] - C(5, 3): 1 2 3 0 
+	i: [5] - j: [1] - C(1, 3): 5 6 7 4 
+		(TESTE) O processo [5] testou o processo [1] no tempo 180.0: CORRETO
+	i: [5] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [5] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [5] - j: [0] - C(0, 3): 4 5 6 7 
+
+===================================
+O processo [1] testando no tempo 182.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 182.0: CORRETO
+s: [2] - C(1, 2): 3 2 
+	i: [1] - j: [3] - C(3, 2): 1 0 
+		(TESTE) O processo [1] testou o processo [3] no tempo 182.0: FALHO
+	i: [1] - j: [2] - C(2, 2): 0 1 
+s: [3] - C(1, 3): 5 6 7 4 
+	i: [1] - j: [5] - C(5, 3): 1 2 3 0 
+		(TESTE) O processo [1] testou o processo [5] no tempo 182.0: CORRETO
+	i: [1] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [1] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [1] - j: [4] - C(4, 3): 0 1 2 3 
+
+
+INTERVALO [7] 
+
+State de [0]: [ 0] [ 2] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [1]: [ 0] [ 0] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [2]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [3]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [4]: [ 0] [ 2] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [5]: [ 0] [ 2] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [6]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [7]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+
+===================================
+O processo [0] testando no tempo 210.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 210.0: CORRETO
+s: [2] - C(0, 2): 2 3 
+	i: [0] - j: [2] - C(2, 2): 0 1 
+		(TESTE) O processo [0] testou o processo [2] no tempo 210.0: FALHO
+	i: [0] - j: [3] - C(3, 2): 1 0 
+s: [3] - C(0, 3): 4 5 6 7 
+	i: [0] - j: [4] - C(4, 3): 0 1 2 3 
+		(TESTE) O processo [0] testou o processo [4] no tempo 210.0: CORRETO
+	i: [0] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [0] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [0] - j: [7] - C(7, 3): 3 0 1 2 
+
+===================================
+O processo [4] testando no tempo 210.0: 
+s: [1] - C(4, 1): 5 
+	i: [4] - j: [5] - C(5, 1): 4 
+		(TESTE) O processo [4] testou o processo [5] no tempo 210.0: CORRETO
+s: [2] - C(4, 2): 6 7 
+	i: [4] - j: [6] - C(6, 2): 4 5 
+		(TESTE) O processo [4] testou o processo [6] no tempo 210.0: FALHO
+	i: [4] - j: [7] - C(7, 2): 5 4 
+s: [3] - C(4, 3): 0 1 2 3 
+	i: [4] - j: [0] - C(0, 3): 4 5 6 7 
+		(TESTE) O processo [4] testou o processo [0] no tempo 210.0: CORRETO
+	i: [4] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [4] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [4] - j: [3] - C(3, 3): 7 4 5 6 
+
+===================================
+O processo [5] testando no tempo 210.0: 
+s: [1] - C(5, 1): 4 
+	i: [5] - j: [4] - C(4, 1): 5 
+		(TESTE) O processo [5] testou o processo [4] no tempo 210.0: CORRETO
+s: [2] - C(5, 2): 7 6 
+	i: [5] - j: [7] - C(7, 2): 5 4 
+		(TESTE) O processo [5] testou o processo [7] no tempo 210.0: FALHO
+	i: [5] - j: [6] - C(6, 2): 4 5 
+s: [3] - C(5, 3): 1 2 3 0 
+	i: [5] - j: [1] - C(1, 3): 5 6 7 4 
+		(TESTE) O processo [5] testou o processo [1] no tempo 210.0: CORRETO
+	i: [5] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [5] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [5] - j: [0] - C(0, 3): 4 5 6 7 
+
+===================================
+O processo [1] testando no tempo 212.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 212.0: CORRETO
+s: [2] - C(1, 2): 3 2 
+	i: [1] - j: [3] - C(3, 2): 1 0 
+		(TESTE) O processo [1] testou o processo [3] no tempo 212.0: FALHO
+	i: [1] - j: [2] - C(2, 2): 0 1 
+s: [3] - C(1, 3): 5 6 7 4 
+	i: [1] - j: [5] - C(5, 3): 1 2 3 0 
+		(TESTE) O processo [1] testou o processo [5] no tempo 212.0: CORRETO
+	i: [1] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [1] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [1] - j: [4] - C(4, 3): 0 1 2 3 
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		O processo [3] RECUPEROU no tempo 235.0
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+===================================
+O processo [3] testando no tempo 236.0: 
+s: [1] - C(3, 1): 2 
+	i: [3] - j: [2] - C(2, 1): 3 
+		(TESTE) O processo [3] testou o processo [2] no tempo 236.0: FALHO
+		Incrementando entrada na posição [2]...
+s: [2] - C(3, 2): 1 0 
+	i: [3] - j: [1] - C(1, 2): 3 2 
+		(TESTE) O processo [3] testou o processo [1] no tempo 236.0: CORRETO
+		Incrementando entrada na posição [1]...
+		Copiando entrada ref. ao processo [7] do State do processo [1] para o State do processo [3]...
+	i: [3] - j: [0] - C(0, 2): 2 3 
+s: [3] - C(3, 3): 7 4 5 6 
+	i: [3] - j: [7] - C(7, 3): 3 0 1 2 
+		(TESTE) O processo [3] testou o processo [7] no tempo 236.0: FALHO
+	i: [3] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [3] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [3] - j: [6] - C(6, 3): 2 3 0 1 
+
+
+INTERVALO [8] 
+
+State de [0]: [ 0] [ 2] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [1]: [ 0] [ 0] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [2]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+State de [3]: [ 0] [ 2] [ 1] [ 0] [ 0] [ 0] [ 1] [ 1] 
+State de [4]: [ 0] [ 2] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [5]: [ 0] [ 2] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [6]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 0] [ 0] 
+State de [7]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+
+===================================
+O processo [0] testando no tempo 240.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 240.0: CORRETO
+s: [2] - C(0, 2): 2 3 
+	i: [0] - j: [2] - C(2, 2): 0 1 
+		(TESTE) O processo [0] testou o processo [2] no tempo 240.0: FALHO
+	i: [0] - j: [3] - C(3, 2): 1 0 
+s: [3] - C(0, 3): 4 5 6 7 
+	i: [0] - j: [4] - C(4, 3): 0 1 2 3 
+		(TESTE) O processo [0] testou o processo [4] no tempo 240.0: CORRETO
+	i: [0] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [0] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [0] - j: [7] - C(7, 3): 3 0 1 2 
+
+===================================
+O processo [4] testando no tempo 240.0: 
+s: [1] - C(4, 1): 5 
+	i: [4] - j: [5] - C(5, 1): 4 
+		(TESTE) O processo [4] testou o processo [5] no tempo 240.0: CORRETO
+s: [2] - C(4, 2): 6 7 
+	i: [4] - j: [6] - C(6, 2): 4 5 
+		(TESTE) O processo [4] testou o processo [6] no tempo 240.0: FALHO
+	i: [4] - j: [7] - C(7, 2): 5 4 
+s: [3] - C(4, 3): 0 1 2 3 
+	i: [4] - j: [0] - C(0, 3): 4 5 6 7 
+		(TESTE) O processo [4] testou o processo [0] no tempo 240.0: CORRETO
+	i: [4] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [4] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [4] - j: [3] - C(3, 3): 7 4 5 6 
+
+===================================
+O processo [5] testando no tempo 240.0: 
+s: [1] - C(5, 1): 4 
+	i: [5] - j: [4] - C(4, 1): 5 
+		(TESTE) O processo [5] testou o processo [4] no tempo 240.0: CORRETO
+s: [2] - C(5, 2): 7 6 
+	i: [5] - j: [7] - C(7, 2): 5 4 
+		(TESTE) O processo [5] testou o processo [7] no tempo 240.0: FALHO
+	i: [5] - j: [6] - C(6, 2): 4 5 
+s: [3] - C(5, 3): 1 2 3 0 
+	i: [5] - j: [1] - C(1, 3): 5 6 7 4 
+		(TESTE) O processo [5] testou o processo [1] no tempo 240.0: CORRETO
+	i: [5] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [5] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [5] - j: [0] - C(0, 3): 4 5 6 7 
+
+===================================
+O processo [1] testando no tempo 242.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 242.0: CORRETO
+s: [2] - C(1, 2): 3 2 
+	i: [1] - j: [3] - C(3, 2): 1 0 
+		(TESTE) O processo [1] testou o processo [3] no tempo 242.0: CORRETO
+		Incrementando entrada na posição [3]...
+	i: [1] - j: [2] - C(2, 2): 0 1 
+s: [3] - C(1, 3): 5 6 7 4 
+	i: [1] - j: [5] - C(5, 3): 1 2 3 0 
+		(TESTE) O processo [1] testou o processo [5] no tempo 242.0: CORRETO
+	i: [1] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [1] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [1] - j: [4] - C(4, 3): 0 1 2 3 
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		O processo [2] RECUPEROU no tempo 247.0
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+===================================
+O processo [2] testando no tempo 248.0: 
+s: [1] - C(2, 1): 3 
+	i: [2] - j: [3] - C(3, 1): 2 
+		(TESTE) O processo [2] testou o processo [3] no tempo 248.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [3] para o State do processo [2]...
+		Copiando entrada ref. ao processo [7] do State do processo [3] para o State do processo [2]...
+s: [2] - C(2, 2): 0 1 
+	i: [2] - j: [0] - C(0, 2): 2 3 
+		(TESTE) O processo [2] testou o processo [0] no tempo 248.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [0] para o State do processo [2]...
+	i: [2] - j: [1] - C(1, 2): 3 2 
+s: [3] - C(2, 3): 6 7 4 5 
+	i: [2] - j: [6] - C(6, 3): 2 3 0 1 
+		(TESTE) O processo [2] testou o processo [6] no tempo 248.0: FALHO
+	i: [2] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [2] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [2] - j: [5] - C(5, 3): 1 2 3 0 
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		O processo [6] RECUPEROU no tempo 250.0
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+===================================
+O processo [6] testando no tempo 251.0: 
+s: [1] - C(6, 1): 7 
+	i: [6] - j: [7] - C(7, 1): 6 
+		(TESTE) O processo [6] testou o processo [7] no tempo 251.0: FALHO
+		Incrementando entrada na posição [7]...
+s: [2] - C(6, 2): 4 5 
+	i: [6] - j: [4] - C(4, 2): 6 7 
+		(TESTE) O processo [6] testou o processo [4] no tempo 251.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [4] para o State do processo [6]...
+		Copiando entrada ref. ao processo [2] do State do processo [4] para o State do processo [6]...
+		Copiando entrada ref. ao processo [3] do State do processo [4] para o State do processo [6]...
+	i: [6] - j: [5] - C(5, 2): 7 6 
+s: [3] - C(6, 3): 2 3 0 1 
+	i: [6] - j: [2] - C(2, 3): 6 7 4 5 
+		(TESTE) O processo [6] testou o processo [2] no tempo 251.0: CORRETO
+		Incrementando entrada na posição [2]...
+	i: [6] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [6] - j: [0] - C(0, 3): 4 5 6 7 
+	i: [6] - j: [1] - C(1, 3): 5 6 7 4 
+
+===================================
+O processo [3] testando no tempo 266.0: 
+s: [1] - C(3, 1): 2 
+	i: [3] - j: [2] - C(2, 1): 3 
+		(TESTE) O processo [3] testou o processo [2] no tempo 266.0: CORRETO
+		Incrementando entrada na posição [2]...
+s: [2] - C(3, 2): 1 0 
+	i: [3] - j: [1] - C(1, 2): 3 2 
+		(TESTE) O processo [3] testou o processo [1] no tempo 266.0: CORRETO
+	i: [3] - j: [0] - C(0, 2): 2 3 
+s: [3] - C(3, 3): 7 4 5 6 
+	i: [3] - j: [7] - C(7, 3): 3 0 1 2 
+		(TESTE) O processo [3] testou o processo [7] no tempo 266.0: FALHO
+	i: [3] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [3] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [3] - j: [6] - C(6, 3): 2 3 0 1 
+
+
+INTERVALO [9] 
+
+State de [0]: [ 0] [ 2] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [1]: [ 0] [ 0] [ 1] [ 2] [ 0] [ 0] [ 1] [ 1] 
+State de [2]: [ 0] [ 2] [ 0] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [3]: [ 0] [ 2] [ 2] [ 0] [ 0] [ 0] [ 1] [ 1] 
+State de [4]: [ 0] [ 2] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [5]: [ 0] [ 2] [ 1] [ 1] [ 0] [ 0] [ 1] [ 1] 
+State de [6]: [ 0] [ 2] [ 2] [ 1] [ 0] [ 0] [ 0] [ 1] 
+State de [7]: [ 0] [ 1] [ 0] [ 0] [ 0] [ 0] [ 1] [ 0] 
+
+===================================
+O processo [0] testando no tempo 270.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 270.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [1] para o State do processo [0]...
+s: [2] - C(0, 2): 2 3 
+	i: [0] - j: [2] - C(2, 2): 0 1 
+		(TESTE) O processo [0] testou o processo [2] no tempo 270.0: CORRETO
+		Incrementando entrada na posição [2]...
+	i: [0] - j: [3] - C(3, 2): 1 0 
+s: [3] - C(0, 3): 4 5 6 7 
+	i: [0] - j: [4] - C(4, 3): 0 1 2 3 
+		(TESTE) O processo [0] testou o processo [4] no tempo 270.0: CORRETO
+	i: [0] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [0] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [0] - j: [7] - C(7, 3): 3 0 1 2 
+
+===================================
+O processo [4] testando no tempo 270.0: 
+s: [1] - C(4, 1): 5 
+	i: [4] - j: [5] - C(5, 1): 4 
+		(TESTE) O processo [4] testou o processo [5] no tempo 270.0: CORRETO
+s: [2] - C(4, 2): 6 7 
+	i: [4] - j: [6] - C(6, 2): 4 5 
+		(TESTE) O processo [4] testou o processo [6] no tempo 270.0: CORRETO
+		Incrementando entrada na posição [6]...
+		Copiando entrada ref. ao processo [2] do State do processo [6] para o State do processo [4]...
+	i: [4] - j: [7] - C(7, 2): 5 4 
+s: [3] - C(4, 3): 0 1 2 3 
+	i: [4] - j: [0] - C(0, 3): 4 5 6 7 
+		(TESTE) O processo [4] testou o processo [0] no tempo 270.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [0] para o State do processo [4]...
+	i: [4] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [4] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [4] - j: [3] - C(3, 3): 7 4 5 6 
+
+===================================
+O processo [5] testando no tempo 270.0: 
+s: [1] - C(5, 1): 4 
+	i: [5] - j: [4] - C(4, 1): 5 
+		(TESTE) O processo [5] testou o processo [4] no tempo 270.0: CORRETO
+		Copiando entrada ref. ao processo [2] do State do processo [4] para o State do processo [5]...
+		Copiando entrada ref. ao processo [3] do State do processo [4] para o State do processo [5]...
+		Copiando entrada ref. ao processo [6] do State do processo [4] para o State do processo [5]...
+s: [2] - C(5, 2): 7 6 
+	i: [5] - j: [7] - C(7, 2): 5 4 
+		(TESTE) O processo [5] testou o processo [7] no tempo 270.0: FALHO
+	i: [5] - j: [6] - C(6, 2): 4 5 
+s: [3] - C(5, 3): 1 2 3 0 
+	i: [5] - j: [1] - C(1, 3): 5 6 7 4 
+		(TESTE) O processo [5] testou o processo [1] no tempo 270.0: CORRETO
+	i: [5] - j: [2] - C(2, 3): 6 7 4 5 
+	i: [5] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [5] - j: [0] - C(0, 3): 4 5 6 7 
+
+===================================
+O processo [1] testando no tempo 272.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 272.0: CORRETO
+		Copiando entrada ref. ao processo [2] do State do processo [0] para o State do processo [1]...
+s: [2] - C(1, 2): 3 2 
+	i: [1] - j: [3] - C(3, 2): 1 0 
+		(TESTE) O processo [1] testou o processo [3] no tempo 272.0: CORRETO
+	i: [1] - j: [2] - C(2, 2): 0 1 
+s: [3] - C(1, 3): 5 6 7 4 
+	i: [1] - j: [5] - C(5, 3): 1 2 3 0 
+		(TESTE) O processo [1] testou o processo [5] no tempo 272.0: CORRETO
+		Copiando entrada ref. ao processo [6] do State do processo [5] para o State do processo [1]...
+	i: [1] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [1] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [1] - j: [4] - C(4, 3): 0 1 2 3 
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		O processo [7] RECUPEROU no tempo 278.0
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+===================================
+O processo [2] testando no tempo 278.0: 
+s: [1] - C(2, 1): 3 
+	i: [2] - j: [3] - C(3, 1): 2 
+		(TESTE) O processo [2] testou o processo [3] no tempo 278.0: CORRETO
+		Incrementando entrada na posição [3]...
+s: [2] - C(2, 2): 0 1 
+	i: [2] - j: [0] - C(0, 2): 2 3 
+		(TESTE) O processo [2] testou o processo [0] no tempo 278.0: CORRETO
+	i: [2] - j: [1] - C(1, 2): 3 2 
+s: [3] - C(2, 3): 6 7 4 5 
+	i: [2] - j: [6] - C(6, 3): 2 3 0 1 
+		(TESTE) O processo [2] testou o processo [6] no tempo 278.0: CORRETO
+		Incrementando entrada na posição [6]...
+	i: [2] - j: [7] - C(7, 3): 3 0 1 2 
+	i: [2] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [2] - j: [5] - C(5, 3): 1 2 3 0 
+
+===================================
+O processo [7] testando no tempo 279.0: 
+s: [1] - C(7, 1): 6 
+	i: [7] - j: [6] - C(6, 1): 7 
+		(TESTE) O processo [7] testou o processo [6] no tempo 279.0: CORRETO
+		Incrementando entrada na posição [6]...
+		Copiando entrada ref. ao processo [1] do State do processo [6] para o State do processo [7]...
+		Copiando entrada ref. ao processo [2] do State do processo [6] para o State do processo [7]...
+		Copiando entrada ref. ao processo [3] do State do processo [6] para o State do processo [7]...
+s: [2] - C(7, 2): 5 4 
+	i: [7] - j: [5] - C(5, 2): 7 6 
+		(TESTE) O processo [7] testou o processo [5] no tempo 279.0: CORRETO
+		Copiando entrada ref. ao processo [3] do State do processo [5] para o State do processo [7]...
+	i: [7] - j: [4] - C(4, 2): 6 7 
+s: [3] - C(7, 3): 3 0 1 2 
+	i: [7] - j: [3] - C(3, 3): 7 4 5 6 
+		(TESTE) O processo [7] testou o processo [3] no tempo 279.0: CORRETO
+	i: [7] - j: [0] - C(0, 3): 4 5 6 7 
+	i: [7] - j: [1] - C(1, 3): 5 6 7 4 
+	i: [7] - j: [2] - C(2, 3): 6 7 4 5 
+
+===================================
+O processo [6] testando no tempo 281.0: 
+s: [1] - C(6, 1): 7 
+	i: [6] - j: [7] - C(7, 1): 6 
+		(TESTE) O processo [6] testou o processo [7] no tempo 281.0: CORRETO
+		Incrementando entrada na posição [7]...
+		Copiando entrada ref. ao processo [3] do State do processo [7] para o State do processo [6]...
+s: [2] - C(6, 2): 4 5 
+	i: [6] - j: [4] - C(4, 2): 6 7 
+		(TESTE) O processo [6] testou o processo [4] no tempo 281.0: CORRETO
+	i: [6] - j: [5] - C(5, 2): 7 6 
+s: [3] - C(6, 3): 2 3 0 1 
+	i: [6] - j: [2] - C(2, 3): 6 7 4 5 
+		(TESTE) O processo [6] testou o processo [2] no tempo 281.0: CORRETO
+	i: [6] - j: [3] - C(3, 3): 7 4 5 6 
+	i: [6] - j: [0] - C(0, 3): 4 5 6 7 
+	i: [6] - j: [1] - C(1, 3): 5 6 7 4 
+
+===================================
+O processo [3] testando no tempo 296.0: 
+s: [1] - C(3, 1): 2 
+	i: [3] - j: [2] - C(2, 1): 3 
+		(TESTE) O processo [3] testou o processo [2] no tempo 296.0: CORRETO
+		Copiando entrada ref. ao processo [6] do State do processo [2] para o State do processo [3]...
+s: [2] - C(3, 2): 1 0 
+	i: [3] - j: [1] - C(1, 2): 3 2 
+		(TESTE) O processo [3] testou o processo [1] no tempo 296.0: CORRETO
+	i: [3] - j: [0] - C(0, 2): 2 3 
+s: [3] - C(3, 3): 7 4 5 6 
+	i: [3] - j: [7] - C(7, 3): 3 0 1 2 
+		(TESTE) O processo [3] testou o processo [7] no tempo 296.0: CORRETO
+		Incrementando entrada na posição [7]...
+	i: [3] - j: [4] - C(4, 3): 0 1 2 3 
+	i: [3] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [3] - j: [6] - C(6, 3): 2 3 0 1 
+
+
+INTERVALO [10] 
+
+State de [0]: [ 0] [ 2] [ 2] [ 2] [ 0] [ 0] [ 1] [ 1] 
+State de [1]: [ 0] [ 0] [ 2] [ 2] [ 0] [ 0] [ 2] [ 1] 
+State de [2]: [ 0] [ 2] [ 0] [ 2] [ 0] [ 0] [ 2] [ 1] 
+State de [3]: [ 0] [ 2] [ 2] [ 0] [ 0] [ 0] [ 2] [ 2] 
+State de [4]: [ 0] [ 2] [ 2] [ 2] [ 0] [ 0] [ 2] [ 1] 
+State de [5]: [ 0] [ 2] [ 2] [ 2] [ 0] [ 0] [ 2] [ 1] 
+State de [6]: [ 0] [ 2] [ 2] [ 2] [ 0] [ 0] [ 0] [ 2] 
+State de [7]: [ 0] [ 2] [ 2] [ 2] [ 0] [ 0] [ 2] [ 0] 
+
+===================================
+O processo [0] testando no tempo 300.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 300.0: CORRETO
+		Copiando entrada ref. ao processo [6] do State do processo [1] para o State do processo [0]...
+s: [2] - C(0, 2): 2 3 
+	i: [0] - j: [2] - C(2, 2): 0 1 
+		(TESTE) O processo [0] testou o processo [2] no tempo 300.0: CORRETO
+	i: [0] - j: [3] - C(3, 2): 1 0 
+s: [3] - C(0, 3): 4 5 6 7 
+	i: [0] - j: [4] - C(4, 3): 0 1 2 3 
+		(TESTE) O processo [0] testou o processo [4] no tempo 300.0: CORRETO
+	i: [0] - j: [5] - C(5, 3): 1 2 3 0 
+	i: [0] - j: [6] - C(6, 3): 2 3 0 1 
+	i: [0] - j: [7] - C(7, 3): 3 0 1 2 
+
+
+FIM DE EXECUÇÃO

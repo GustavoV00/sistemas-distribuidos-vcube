@@ -1,0 +1,186 @@
+==============================================================================
+2022/2 - TRABALHO 1 SISTEMAS DISTRIBUIDOS
+Bruno Farias - GRR20186715 | Gustavo Valente - GRR20182557
+Tempo máximo: [300.0] - N de processos: [2]
+==============================================================================
+Inicializando os [2] processos...
+fa_name = 0, processo[0].id = 1
+State de [0]: [ 0] [-1] 
+fa_name = 1, processo[1].id = 4
+State de [1]: [-1] [ 0] 
+Processos inicializados com sucesso!
+
+Fazendo escalonamento inicial dos eventos...
+Escalonamento concluído!
+Criando faults e recoveries
+Finalizado a ação de faults e recoveries
+log2(2) = 1
+
+
+INTERVALO [1] 
+
+State de [0]: [ 0] [-1] 
+State de [1]: [-1] [ 0] 
+
+===================================
+O processo [0] testando no tempo 30.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [1] do State do processo [1] para o State do processo [0]...
+
+===================================
+O processo [1] testando no tempo 30.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 30.0: CORRETO
+		Copiando entrada ref. ao processo [0] do State do processo [0] para o State do processo [1]...
+
+
+INTERVALO [2] 
+
+State de [0]: [ 0] [ 0] 
+State de [1]: [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 60.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 60.0: CORRETO
+
+===================================
+O processo [1] testando no tempo 60.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 60.0: CORRETO
+
+
+---------------------------------------------------------
+		O processo [1] FALHOU no tempo 65.0
+---------------------------------------------------------
+
+
+
+INTERVALO [3] 
+
+State de [0]: [ 0] [ 0] 
+State de [1]: [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 90.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 90.0: FALHO
+		Incrementando entrada na posição [1]...
+
+
+INTERVALO [4] 
+
+State de [0]: [ 0] [ 1] 
+State de [1]: [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 120.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 120.0: FALHO
+
+
+INTERVALO [5] 
+
+State de [0]: [ 0] [ 1] 
+State de [1]: [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 150.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 150.0: FALHO
+
+
+INTERVALO [6] 
+
+State de [0]: [ 0] [ 1] 
+State de [1]: [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 180.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 180.0: FALHO
+
+
+INTERVALO [7] 
+
+State de [0]: [ 0] [ 1] 
+State de [1]: [ 0] [ 0] 
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+		O processo [1] RECUPEROU no tempo 210.0
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+===================================
+O processo [0] testando no tempo 210.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 210.0: CORRETO
+		Incrementando entrada na posição [1]...
+
+===================================
+O processo [1] testando no tempo 211.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 211.0: CORRETO
+
+
+INTERVALO [8] 
+
+State de [0]: [ 0] [ 2] 
+State de [1]: [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 240.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 240.0: CORRETO
+
+===================================
+O processo [1] testando no tempo 241.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 241.0: CORRETO
+
+
+INTERVALO [9] 
+
+State de [0]: [ 0] [ 2] 
+State de [1]: [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 270.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 270.0: CORRETO
+
+===================================
+O processo [1] testando no tempo 271.0: 
+s: [1] - C(1, 1): 0 
+	i: [1] - j: [0] - C(0, 1): 1 
+		(TESTE) O processo [1] testou o processo [0] no tempo 271.0: CORRETO
+
+
+INTERVALO [10] 
+
+State de [0]: [ 0] [ 2] 
+State de [1]: [ 0] [ 0] 
+
+===================================
+O processo [0] testando no tempo 300.0: 
+s: [1] - C(0, 1): 1 
+	i: [0] - j: [1] - C(1, 1): 0 
+		(TESTE) O processo [0] testou o processo [1] no tempo 300.0: CORRETO
+
+
+FIM DE EXECUÇÃO
