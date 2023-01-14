@@ -32,6 +32,7 @@
 		fonte {
 			font-family: 'Bebas Neue', cursive;
 		}
+
 	</style>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,20 +48,20 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item mt-2">
-					<a href="#exemplo1" class="nav-link">Exemplo 1</a>
+					<a href="#especificacoes" class="nav-link">Especificações</a>
 				</li>
                 <li class="nav-item mt-2">
-					<a href="#exemplo2" class="nav-link">Exemplo 2</a>
+					<a href="#relatorio" class="nav-link">Relatório</a>
 				</li>
                 <li class="nav-item mt-2">
-					<a href="#exemplo3" class="nav-link">Exemplo 3</a>
+					<a href="#arquivos" class="nav-link">Arquivos</a>
 				</li>
 			</ul>
 		</div>
 
 	</nav>
 	<main class="container">
-		<section class="text-center">
+		<section id="especificacoes" class="text-center">
 			<h1>Trabalho de Sistemas Distribuídos</h1>
 			<h2>Implementação do vCube em ambiente SMPL</h2>
             <h3 class="h5">(2022-2)</h3>
@@ -68,66 +69,184 @@
 			<hr>
 			
 			<p class="mb-0">BRUNO FARIAS - GRR20186715</p>
-            <p>GUSTAVO VALENTE - GRR20176573</p>
+            <p>GUSTAVO VALENTE - GRR20182557</p>
 
 			<hr><br>
+			<div class="container">
+				<h4>Especificações dos trabalhos</h4><br>
+				<div class="row">
+					<div class="col-sm">
+						<p><b>TRABALHO PRÁTICO 0</b></p>
+						<p><b>Roteiro de Aprendizado Prático de Simulação</b></p>
+						<div class="text-left">
+							Tarefa 0: digitar, compilar e executar o programa exemplo, tempo.c</br></br>
+
+							Tarefa 1: Fazer cada um dos processos testar o seguinte no anel. Implemente o teste com a função status() do SMPL e imprimir (printf) o resultado de cada teste executado. Por exemplo: “O processo i testou o processo j correto no tempo tal.”</br></br>
+
+							Tarefa 2: Cada processo correto executa testes até achar outro processo correto. Lembre-se de tratar o caso em que todos os demais processos estão falhos. Imprimir os testes e resultados.</br></br>
+
+							Tarefa 3: Cada processo mantém localmente o vetor State[N]. A entrada do vetor State[j] indica o estado do processo j. O estado de cada processo pode ser: -1 (unknown), 0 (correto) ou 1 (falho). Inicialize (para todos os processos) o State[N] com -1 (indicando estado “unknown”) para todos os demais processos e 0 para o próprio processo. Nesta tarefa ao executar um teste em um processo j, o testador atualiza a entrada correspondente no vetor State[j]. Em cada intervalo de testes, mostre o vetor State[N].</br></br>
+
+							Tarefa 4: Quando um processo correto testa outro processo correto obtém as informações do estado dos demais processos do sistema, processos do sistema exceto aqueles que testou nesta rodada, além do próprio testador.</br></br>
+
+						</div>
+					</div>
+					<div class="col-sm">
+						<p><b>TRABALHO PRÁTICO 1</b></p>
+						<p><b>Implementação do VCUBE em ambiente SMPL</b></p>
+						<div class="text-left">
+							Especificação: Implemente o detector de falhas vCube no ambiente de simulação SMPL, e mostre resultados para diversos valores de N e diversos eventos. Um evento consiste da mudança de estado de um ou mais processos. Para cada evento mostre claramente o número de testes executados e a latência para todos os processos corretos detectarem o evento. Cada processo mantém o vetor STATE[0..N-1] de contadores de eventos, inicializado em -1 (estado “unknown”). Assume-se que os processos são inicializados corretos (estado 0), a entrada correspondente ao próprio processo no vetor STATE[] do testador é setada para zero. Ao descobrir um novo evento em um nodo testado, o testador incrementa a entrada correspondente no vetor STATE[].</br></br>
+
+							Implemente o vCube de forma que em cada intervalo de testes todos os logN clusters são testados. Na verdade, cada testador executa todos os seus testes assinalados em cada intervalo de testes.</br></br>
+
+							Para a transferência de informações de estado, faça da seguinte maneira: ao testar um processo sem-falha o testador lê o vetor State[] do processo testado e obtém informações sobre novidades. É importante comparar as entradas correspondentes dos vetores STATE (testador e testado) para saber se o testado tem alguma novidade. Se o valor da entrada for maior no vetor STATE do processo testado, então copia a informação.
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
-		<section id="exemplo1">
-			<h2>Exemplo 1</h2>
-			<p class="mb-1">
-				bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-			</p>
-            <p class="mb-1">
-				bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-			</p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-            <p class="mb-1">
-                bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-            </p>
-			<br>
+		<hr><br>
+        <section id="relatorio">
+			<div class="container">
+				<h4 class="text-center">Relatório do Trabalho Prático 1 - VCUBE</h4>
+				<p>
+					A primeira coisa a ser feita, é entender como funciona o simulador SMPL, e para isso foi realizado o trabalho prático 0 para entendermos como que a questão do teste de processo, uma fault, recovery funciona. Após todas as tarefas requisitadas pelo trabalho 0 foram terminadas, aí sim foi dado início ao trabalho prático 1. No trabalho prático 1, temos como objetivo desenvolver um detector de falhas chamado vcube. A primeira coisa a ser feita, é entender como que o vcube funciona de forma teórica e como é o funcionamento do algoritmo. Ao desenvolver o trabalho, foi utilizado o algoritmo que o professor passou em sala de aula:
+					<div>
+						<h5>Algorithm vCube exeted by process i</h5>
+						<code>
+							for j <- to (N-1) except i<br>
+								&emsp;for s <- 1 to Log2N do<br>
+									&emsp;&emsp;if i is the first correct processo in C(j,s):<br>
+										&emsp;&emsp;&emsp;toTest <- toTest U {j}<br>
+							repeat<br>
+								&emsp;for all j in toTest do test(j)<br>
+									&emsp;&emsp;if j is correct:<br>
+										&emsp;&emsp;&emsp;STATEi[j] mod 2 == 1:<br>
+											&emsp;&emsp;&emsp;&emsp;STATEi[j]++<br>
+											&emsp;&emsp;&emsp;&emsp;re-calc the tests<br>
+											&emsp;&emsp;&emsp;&emsp;obtain state information from STATE[j]<br>
+									&emsp;&emsp;else if STATEi[j] mod 2 = 0:<br>
+										&emsp;&emsp;&emsp;STATEi[j]++<br>
+										&emsp;&emsp;&emsp;re-calc the tests<br>
+								&emsp;sleep until next testing interval<br>
+							forever
+						</code>
+					</div>
+					Após implementarmos uma versão inicial para entendermos como que o algoritmo funciona, foi feito uma adaptação do vCube juntamente com o smpl, algo parecido com o que foi feito no trabalho prático 0, porém mais sofisticado. Após essa primeira versão ser implementado e meio adaptado ao simulador, foi a hora de começarmos a interagir com o C(i,s) e para isso, foi utilizado o arquivo cisj.c oferecido pelo professor. Com isso tudo implementado, estávamos quase terminando, porém, começamos a notar que estávamos tendo erro ao obter um C(3,3) onde i >= 3 e s >=3, e então tivemos que tentar resolver o problema. Para resolver isso, foi feito: …
+					Após resolver todas essas questões, faltava apenas obter informações do próximo diagnóstico, que era a questão de analisar os estados do processo. Após resolver isso, conseguimos um código que funciona de acordo com a descrição do trabalho 1, então foi partir para a refatoração do código e terminar alguns detalhes.
+
+				</p>
+			</div>
 		</section>
-        <section id="exemplo2">
-			<h2>Exemplo 2</h2>
-			<p class="mb-1">
-					bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-			</p>
+		<hr><br>
+        <section id="arquivos">
+			<h4 class="text-center">Arquivos-Trab 0</h4>
+			<div class="d-flex flex-wrap justify-content-around align-items-center">
+				<div class="card m-3" style="width: 40%">
+					<div class="card-body">
+						<h5 class="card-title">TRABALHO 0</h5>
+						<h6 class="card-subtitle mb-2 text-muted">Bruno Farias</h6>
+						<br>
+						<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+						
+						<table class="table table-bordered table-stripped text-center">
+							<thead class="thead-dark">
+								<th>Nome Tarefa</th>
+								<th>Arquivo</th>
+								<th>Log</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>TAREFA 0</td>
+									<td>
+										<a href="#" class="card-link">tempo.c</a>
+									</td>
+									<td>
+										<a href="#" class="card-link">log_t0.c</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="card m-3" style="width: 40%">
+					<div class="card-body">
+						<h5 class="card-title">TRABALHO 0</h5>
+						<h6 class="card-subtitle mb-2 text-muted">Gustavo Valente</h6>
+						<br>
+						<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+						<table class="table table-bordered table-stripped text-center">
+							<thead class="thead-dark">
+								<th>Nome Tarefa</th>
+								<th>Arquivo</th>
+								<th>Log</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>TAREFA 0</td>
+									<td>
+										<a href="#" class="card-link">tempo.c</a>
+									</td>
+									<td>
+										<a href="#" class="card-link">log_t0.c</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<section>
+				<h4 class="text-center">Arquivos - Trab 1</h4>
+				<div class="card m-3" style="width: 100%">
+					<div class="card-body">
+						<h5 class="card-title">TRABALHO 1</h5>
+						<h6 class="card-subtitle mb-2 text-muted">Bruno Farias</h6>
+						<h6 class="card-subtitle mb-2 text-muted">Gustavo Valente</h6>
+						<br>
+						<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+						<table class="table table-bordered table-stripped text-center">
+							<thead class="thead-dark">
+								<th>Arquivo</th>
+								<th>Log</th>
+								<th>Detalhes</th>
+								<th>Descrição</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="text-left">
+										<a href="./cisj.c.txt" class="card-link">cisj.c</a>
+										<a href="./cisj.h.txt" class="card-link">cisj.h</a>
+										<a href="./rand.c.txt" class="card-link">rand.c</a>
+										<a href="./smpl.c.txt" class="card-link">smpl.c</a>
+										<a href="./smpl.h.txt" class="card-link">smpl.h</a>
+										<a href="./utils.c.txt" class="card-link">utils.c</a>
+										<a href="./utils.h.txt" class="card-link">utils.h</a>
+										<a href="./vcube.c.txt" class="card-link">vcube.c</a>
+										<a href="./vcube.h.txt" class="card-link">vcube.h</a>
+									</td>
+									<td>
+										<a href="../ex_N2/log_N2.txt" class="card-link">log1.txt</a>
+										<a href="../ex_N4/log_N4.txt" class="card-link">log2.txt</a>
+										<a href="../ex_N8/log_N8.txt" class="card-link">log3.txt</a>
+										<a href="../ex_N16/log_N16.txt" class="card-link">log4.txt</a>
+									</td>
+									<td>
+										<a href="../ex_N2/details_N2.txt" class="card-link">detalhes1.txt</a>
+										<a href="../ex_N4/details_N4.txt" class="card-link">detalhes2.txt</a>
+										<a href="../ex_N8/details_N8.txt" class="card-link">detalhes3.txt</a>
+										<a href="../ex_N16/details_N16.txt" class="card-link">detalhes4.txt</a>
+									</td>
+									<td>BLA BLA BLA BLA BLA BLA</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				</div>
+			</section>
 			
-			<br>
-		</section>
-        <section id="exemplo3">
-			<h2>Exemplo 3</h2>
-			<p class="mb-1">
-					bsbhdhahaiusdbabdsijahdsahdiusahdfiuuashdiuoashdusa
-			</p>
 			
 			<br>
 		</section>
