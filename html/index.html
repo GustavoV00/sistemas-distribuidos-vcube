@@ -110,18 +110,19 @@
 			<div class="container">
 				<h4 class="text-center">Relatório do Trabalho Prático 1 - VCUBE</h4>
 				<p>
-					A primeira coisa a ser feita, é entender como funciona o simulador SMPL, e para isso foi realizado o trabalho prático 0 para entendermos como que a questão do teste de processo, uma fault, recovery funciona. Após todas as tarefas requisitadas pelo trabalho 0 foram terminadas, aí sim foi dado início ao trabalho prático 1. No trabalho prático 1, temos como objetivo desenvolver um detector de falhas chamado vcube. A primeira coisa a ser feita, é entender como que o vcube funciona de forma teórica e como é o funcionamento do algoritmo. Ao desenvolver o trabalho, foi utilizado o algoritmo que o professor passou em sala de aula:
+					<p>A primeira coisa a ser feita é entender como funciona o simulador SMPL e, para isso, foi realizado o Trabalho Prático 0. Com ele entendemos como funcionam os testes dos processos, as fault's e as recovery's. Após a finalização das tarefas individuais requisitadas pelo trabalho 0, foi dado início ao trabalho prático 1. No trabalho prático 1, temos como objetivo desenvolver um detector de falhas chamado vCube.</p>
+					<p>Então precisamos entender como o vCube funciona de forma teórica e como é o funcionamento do algoritmo. Ao desenvolver o trabalho, foi utilizado o algoritmo que o professor passou em sala de aula:</p>
 					<div>
-						<h5>Algorithm vCube exeted by process i</h5>
+						<h5>Algorithm vCube executed by process i</h5>
 						<code>
 							for j <- to (N-1) except i<br>
 								&emsp;for s <- 1 to Log2N do<br>
-									&emsp;&emsp;if i is the first correct processo in C(j,s):<br>
+									&emsp;&emsp;if i is the first correct process in C(j,s):<br>
 										&emsp;&emsp;&emsp;toTest <- toTest U {j}<br>
 							repeat<br>
 								&emsp;for all j in toTest do test(j)<br>
 									&emsp;&emsp;if j is correct:<br>
-										&emsp;&emsp;&emsp;STATEi[j] mod 2 == 1:<br>
+										&emsp;&emsp;&emsp;if STATEi[j] mod 2 == 1:<br>
 											&emsp;&emsp;&emsp;&emsp;STATEi[j]++<br>
 											&emsp;&emsp;&emsp;&emsp;re-calc the tests<br>
 											&emsp;&emsp;&emsp;&emsp;obtain state information from STATE[j]<br>
@@ -132,15 +133,37 @@
 							forever
 						</code>
 					</div>
-					Após implementarmos uma versão inicial para entendermos como que o algoritmo funciona, foi feito uma adaptação do vCube juntamente com o smpl, algo parecido com o que foi feito no trabalho prático 0, porém mais sofisticado. Após essa primeira versão ser implementado e meio adaptado ao simulador, foi a hora de começarmos a interagir com o C(i,s) e para isso, foi utilizado o arquivo cisj.c oferecido pelo professor. Com isso tudo implementado, estávamos quase terminando, porém, começamos a notar que estávamos tendo erro ao obter um C(3,3) onde i >= 3 e s >=3, e então tivemos que tentar resolver o problema. Para resolver isso, foi feito: …
-					Após resolver todas essas questões, faltava apenas obter informações do próximo diagnóstico, que era a questão de analisar os estados do processo. Após resolver isso, conseguimos um código que funciona de acordo com a descrição do trabalho 1, então foi partir para a refatoração do código e terminar alguns detalhes.
+					<br>
+					<p>Após implementarmos uma versão inicial para entendermos como o algoritmo funciona, foi feita uma adaptação do vCube para funcionar juntamente com o SMPL, algo parecido com o que foi feito no trabalho prático 0, porém mais sofisticado. Após essa primeira versão ser implementada e adaptada ao simulador, foi a hora de começarmos a interagir com o C(i,s) e para isso, foi utilizado o arquivo <b>cisj.c</b> oferecido pelo professor.</p>
+					<p>Com o algorimo básico implementado começamos a notar que estávamos tendo erro ao obter alguns C(i,s) em que s >= 3 e s é ímpar, como o C(3,3), por exemplo. Então, tivemos que tentar resolver o problema. Para resolver isso, foi feito uma análise e percebemos que o erro estava acontecendo a cada cluster de 4 processos. Por exemplo, C(3,3) estava ficando 7 6 5 4 ao invés de 7 4 5 6, ou seja, o segundo estava invertido com o último.</p>
+					<p>Após resolver essa questão, faltava apenas obter informações de diagnóstico, que é a questão de analisar os estados do processos testados corretos. Após resolver isso, conseguimos um código que funciona de acordo com a descrição do trabalho 1, então foi partir para a refatoração do código e terminar alguns detalhes.</p>
+					<br>
+					<p>Resumindo:</p>
+					<ul>
+						<li>O loop <b>while (time() < MAX_TIME)</b> juntamente com o <b>cause(&event, &token);</b> simulam os intervalos de teste, sendo capturado no <b>case test:</b></li>
+						<li>Quando um processo vai testar, percorre todos os clusters (log2 N), pega todos os processos que vai testar (com C(i,s)) e, caso i seja o primeiro correto em C(j,s) ele faz o teste em j.</li>
+						<li>Se j estiver correto: 
+							<ul>
+								<li>Se a entrada de j em Statei for ímpar -> soma + 1 (vai ficar par, indicando que o processo está correto)</li>
+								<li>O processo i obtem as novidades do vetor State do processo j</li>
+							</ul>
+							
+						</li>
+						<li>
+							Se j estiver falho:
+							<ul>
+								<li>Se a entrada de j em Statei for par -> soma + 1 (vai ficar ímpar, indicando que o processo está falho)</li>
+							</ul>
+						</li>
+							
+					</ul>
 
 				</p>
 			</div>
 		</section>
 		<hr><br>
         <section id="arquivos">
-			<h4 class="text-center">Arquivos-Trab 0</h4>
+			<h4 class="text-center">Arquivos - Trab 0</h4>
 			<div class="d-flex flex-wrap justify-content-around align-items-center">
 				<div class="card m-3" style="width: 40%">
 					<div class="card-body">
@@ -205,49 +228,91 @@
 						<h6 class="card-subtitle mb-2 text-muted">Bruno Farias</h6>
 						<h6 class="card-subtitle mb-2 text-muted">Gustavo Valente</h6>
 						<br>
-						<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
 						<table class="table table-bordered table-stripped text-center">
 							<thead class="thead-dark">
 								<th>Arquivo</th>
-								<th>Log</th>
-								<th>Detalhes</th>
 								<th>Descrição</th>
 							</thead>
 							<tbody>
 								<tr>
-									<td class="text-left">
-										<a href="./cisj.c.txt" class="card-link">cisj.c</a>
-										<a href="./cisj.h.txt" class="card-link">cisj.h</a>
-										<a href="./rand.c.txt" class="card-link">rand.c</a>
-										<a href="./smpl.c.txt" class="card-link">smpl.c</a>
-										<a href="./smpl.h.txt" class="card-link">smpl.h</a>
-										<a href="./utils.c.txt" class="card-link">utils.c</a>
-										<a href="./utils.h.txt" class="card-link">utils.h</a>
-										<a href="./vcube.c.txt" class="card-link">vcube.c</a>
-										<a href="./vcube.h.txt" class="card-link">vcube.h</a>
-									</td>
-									<td>
-										<a href="../ex_N2/log_N2.txt" class="card-link">log1.txt</a>
-										<a href="../ex_N4/log_N4.txt" class="card-link">log2.txt</a>
-										<a href="../ex_N8/log_N8.txt" class="card-link">log3.txt</a>
-										<a href="../ex_N16/log_N16.txt" class="card-link">log4.txt</a>
-									</td>
-									<td>
-										<a href="../ex_N2/details_N2.txt" class="card-link">detalhes1.txt</a>
-										<a href="../ex_N4/details_N4.txt" class="card-link">detalhes2.txt</a>
-										<a href="../ex_N8/details_N8.txt" class="card-link">detalhes3.txt</a>
-										<a href="../ex_N16/details_N16.txt" class="card-link">detalhes4.txt</a>
-									</td>
-									<td>BLA BLA BLA BLA BLA BLA</td>
+									<td><a href="./cisj.c.txt" class="card-link">cisj.c</a></td>
+									<td>Arquivo que calcula a função C(i,s)</td>
+								</tr>
+								<tr>
+									<td><a href="./cisj.h.txt" class="card-link">cisj.h</a></td>
+									<td>Protótipos - Arquivo que calcula a função C(i,s)</td>
+								</tr>
+								<tr>
+									<td><a href="./rand.c.txt" class="card-link">rand.c</a></td>
+									<td>Funções auxiliares para o SMPL</td>
+								</tr>
+								<tr>
+									<td><a href="./smpl.c.txt" class="card-link">smpl.c</a></td>
+									<td>Implementação do SMPL.</td>
+								</tr>
+								<tr>
+									<td><a href="./smpl.h.txt" class="card-link">smpl.h</a></td>
+									<td>Protótipos - Implementação do SMPL.</td>
+								</tr>
+								<tr>
+									<td><a href="./utils.c.txt" class="card-link">utils.c</a></td>
+									<td>Funções úteis para o vCube.</td>
+								</tr>
+								<tr>
+									<td><a href="./utils.h.txt" class="card-link">utils.h</a></td>
+									<td>Protótipos - Funções úteis para o vCube.</td>
+								</tr>
+								<tr>
+									<td><a href="./vcube.c.txt" class="card-link">vcube.c</a></td>
+									<td>Implementação do vCube.</td>
+								</tr>
+								<tr>
+									<td><a href="./vcube.h.txt" class="card-link">vcube.h</a></td>
+									<td>Protótipos - Implementação do vCube.</td>
 								</tr>
 							</tbody>
-						</table>
+						</thead>
+
+						<div>
+							<table class="table table-bordered table-stripped text-center">
+								<thead class="thead-dark">
+									<th>N</th>
+									<th>Tempo</th>
+									<th>Detalhes</th>
+									<th>Log</th>
+								</thead>
+								<tbody>
+									<tr>
+										<td>2</td>
+										<td>300.0</td>
+										<td><a href="../ex_N2/details_N2.txt" class="card-link">details_N2.txt</a></td>
+										<td><a href="../ex_N2/log_N2.txt" class="card-link">log_N2.txt</a></td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>300.0</td>
+										<td><a href="../ex_N4/details_N4.txt" class="card-link">details_N4.txt</a></td>
+										<td><a href="../ex_N4/log_N4.txt" class="card-link">log_N4.txt</a></td>
+									</tr>
+									<tr>
+										<td>8</td>
+										<td>300.0</td>
+										<td><a href="../ex_N8/details_N8.txt" class="card-link">details_N8.txt</a></td>
+										<td><a href="../ex_N8/log_N8.txt" class="card-link">log_N8.txt</a></td>
+									</tr>
+
+									<tr>
+										<td>16</td>
+										<td>300.0</td>
+										<td><a href="../ex_N16/details_N16.txt" class="card-link">details_N16.txt</a></td>
+										<td><a href="../ex_N16/log_N16.txt" class="card-link">log_N16.txt</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
-				</div>
 			</section>
-			
-			
 			<br>
 		</section>
 		<hr>
